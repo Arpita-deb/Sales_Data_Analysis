@@ -30,7 +30,7 @@ The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world
 There is no information how the data is collected or preprocessed. Since this dataset has been provided by Coursera in this capstone project we can assume its reliability and originality.
 
 ### Comprehensiveness:
-The data contains information that may help us find the answer to the key question **What’s likely to make the employee leave the company?**. But there are many more reasons for an employee to leave a company. For example, personal reasons (relocating for a spouce, family or health issues), work-life balance, incompatility between employer and employee, lack of opportunity, financial reasons etc. 
+The data contains information that may help us find the answer to the key questions.
 
 ### Citation:
 There is no external citation for this dataset. One can visit [data.world](https://data.world/dataman-udit/us-regional-sales-data) for basic informations.
@@ -71,43 +71,40 @@ The dataset was created 3 years ago. Clearly it is outdated.
 | :--- | :--- | :--- |
 | store__id | int | Uniquely identify each store |
 | city_name | str | City of the store location |
-| county | str | Uniquely identifies each record |
-| state_code | str | Uniquely identifies each record |
-| state | str | Uniquely identifies each record |
-| type | str | Uniquely identifies each record |
-| latitude | str | Uniquely identifies each record |
-| longitude | str | Uniquely identifies each record |
-| location | str | Uniquely identifies each record |
-| area_code | str | Uniquely identifies each record |
-| population | str | Uniquely identifies each record |
-| household_income | str | Uniquely identifies each record |
-| median_income | str | Uniquely identifies each record |
-| land_area | str | Uniquely identifies each record |
-| water_area | str | Uniquely identifies each record |
-| time_zone | str | Uniquely identifies each record |
+| county | str | County of the store location |
+| state_code | str | State code of the store location |
+| state | str | State of the store location |
+| type | str | Type of region to which the store belongs |
+| latitude | float | Latitude of the individual store |
+| longitude | float | Longitude of the individual store |
+| location |    | Coordinates of the store location|
+| area_code | int | Area code of the store |
+| population | int | Location population |
+| household_income | int | Household income in USD of the store location |
+| median_income | int | Median income in USD of the store location |
+| land_area | int | Land area of the location |
+| water_area | int | Water area of the location |
+| time_zone | str | Time zone of the location |
 
 ### 4. products_sheet
 | Column Name | Type | Description |
 | :--- | :--- | :--- |
-| satisfaction_level | int64 | The employee’s self-reported satisfaction level [0-1] |
-| order_number | str | Uniquely identifies each record |
-| order_number | str | Uniquely identifies each record |
-| order_number | str | Uniquely identifies each record |
-| order_number | str | Uniquely identifies each record |
+| product_id | int | Uniquely identifies each product |
+| product_name | str | Name of the product |
 
 ### 5. regions_sheet
 | Column Name | Type | Description |
 | :--- | :--- | :--- |
-| satisfaction_level | int64 | The employee’s self-reported satisfaction level [0-1] |
-| order_number | str | Uniquely identifies each record |
-| order_number | str | Uniquely identifies each record |
-| order_number | str | Uniquely identifies each record |
+| state_code | str | Uniquely identifies each state |
+| state | str | US state name |
+| region | str | US region of individual state |
+
 ### 6. sales_team_sheet
 | Column Name | Type | Description |
 | :--- | :--- | :--- |
-| satisfaction_level | int64 | The employee’s self-reported satisfaction level [0-1] |
-
-
+| sales_team_id | int | Uniquely identtifies each sales team |
+| sales_team | str | Sales person assigned |
+| region | str | Operating region of the sales person |
 
 # Data Cleaning
 
@@ -123,9 +120,13 @@ The dataset was created 3 years ago. Clearly it is outdated.
 
 # Results
 
+
 # Recommendations:
+
+
 # Limitations
 
 
 # References
 
+* [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
