@@ -1,22 +1,68 @@
 # Sales Data Analysis using Excel and Power BI
-## Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
+### Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
 
-# Introduction
+## Introduction
+The US regional sales data contain information about sales of 47 products ordered between May 2018 to December 2022. The products are sold across 367 stores located in 48 regions across the States. There are 4 sales channels, 50 customer (farms/companies) and 28 sales team. 
 
+## Stakeholders
+These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for your sales analysis are -
 
-# Objectives
+* Sales managers
+* Marketing managers
+* Product managers
+* Finance managers
+* Senior executives
 
+## Objectives
 
-# Stakeholders
+The objectives of the sales analysis are -
+* Assess overall sales trends and determine whether growth is occurring.
+* Evaluate the effectiveness of the sales strategy.
+* Identify the best and worst performing products, channels, teams, and regions.
+* Discover the patterns and drivers of sales.
+* Forecast future sales and revenue.
+* Generate reports and recommendations for improvement and optimization to share with key stakeholders.
 
+## Potential questions to ask:
 
-# Tools used
+Asking SMART questions can help us explore and understand the sales data better, and that can lead us to actionable insights and recommendations.
+
+* What are the total sales and revenue for each year, quarter, month, and week? How do they compare to the previous periods and the targets?
+* What are the sales and revenue breakdown by product, channel, team, and region? How do they compare to each other and to the market share?
+* What are the trends and seasonality of the sales data?
+* What are the factors that influence the sales performance, such as price, discount, promotion, customer satisfaction, and competition?
+* What are the opportunities and challenges for increasing sales and revenue?
+* What are the best practices and lessons learned from the sales data?
+* How can the sales strategy be improved and optimized based on the sales analysis?
+
+## Important Metrics to measure:
+Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our sales analysis are -
+
+* Sales volume
+* Sales revenue
+* Sales growth rate
+* Sales mix
+* Sales trends
+* Profit per product
+* Total Revenue
+* Year-Over-Year Growth
+* Total sales per year/quarter/month
+* Total sales per region/state/county/product/channel/teams
+* Average order value
+* Conversion rate
+* Customer acquisition cost
+* Customer lifetime value
+* Sales variance
+* Sales forecast accuracy 
+* Return on sales
+
+## Tools used
 
 * Excel - For data cleaning and wrangling
 * Pivot Table - For analysing data
 * Power BI - For visualizing the data
 
-# About the Dataset
+## About the Dataset
 
 The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world](https://data.world/dataman-udit/us-regional-sales-data). It consists of 6 tables, namely-
 1. sales_orders_sheet
@@ -38,7 +84,7 @@ There is no external citation for this dataset. One can visit [data.world](https
 ### Current:
 The dataset was created 3 years ago. Clearly it is outdated.
 
-# Data Dictionary
+## Data Dictionary
 
 ### 1. sales_orders_sheet
 | Column Name | Type | Description |
@@ -106,27 +152,27 @@ The dataset was created 3 years ago. Clearly it is outdated.
 | sales_team | str | Sales person assigned |
 | region | str | Operating region of the sales person |
 
-# Data Cleaning
+## Data Cleaning
 
 
-# Data Processing
+## Data Processing
 
 
-# Data Analysis
+## Data Analysis
 
 
-# Data Visualization
+## Data Visualization
 
 
-# Results
+## Results
 
 
-# Recommendations:
+## Recommendations:
 
 
-# Limitations
+## Limitations
 
 
-# References
+## References
 
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
