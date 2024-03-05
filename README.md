@@ -148,12 +148,22 @@ The dataset was created 3 years ago. Clearly it is outdated.
 ### 6. sales_team_sheet
 | Column Name | Type | Description |
 | :--- | :--- | :--- |
-| sales_team_id | int | Uniquely identtifies each sales team |
+| sales_team_id | int | Uniquely identifies each sales team |
 | sales_team | str | Sales person assigned |
 | region | str | Operating region of the sales person |
 
 ## Data Cleaning
-
+1. Created a backup copy of the dataset.
+2. Changed the column names to more consistent names.
+    * Changed the sales_team column name to sales_representative. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. However, without more context or information about it, this is just an educated guess.
+4. Checked for duplicates using Remove duplicate option and checked missing values or inconsistent values by using filter function.
+5. Checked the formatting of the datatypes. Changed the formatting of unit_price, unit_cost and discount_applied from number to currency($).
+6. Trimmed for white spaces using TRIM function.
+7. Removed redundant columns.
+    * currency_code column from sales_orders sheet.
+    * area_code,household_income, median_income, land_area, water_area, location from store_location sheet.
+8. In the store_location sheet, there are some duplicate entries in terms of city name. For example, Waterbury is a city in the U.S. state of Connecticut. On the other hand, the term "Waterbury Town" could refer to the town (township) of Waterbury, which is coextensive with the city. In many U.S. states, a "town" is a form of local government, similar to a city. However, the terms "city" and "town" can be used interchangeably in some contexts.
+There are 7 such pair of cities e.g., Bridgeport and Bridgeport (town) which has similar attributes in all other aspects.
 
 ## Data Processing
 
