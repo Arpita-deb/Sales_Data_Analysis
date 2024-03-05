@@ -27,10 +27,11 @@ The objectives of the sales analysis are -
 
 Asking SMART questions can help us explore and understand the sales data better, and that can lead us to actionable insights and recommendations.
 
-* What are the total sales and revenue for each year, quarter, month, and week? How do they compare to the previous periods and the targets?
+* What are the total sales and revenue for each year, quarter, month, and week? How do they compare to the previous periods?
 * What are the sales and revenue breakdown by product, channel, team, and region? How do they compare to each other and to the market share?
 * What are the trends and seasonality of the sales data?
-* What are the factors that influence the sales performance, such as price, discount, promotion, customer satisfaction, and competition?
+* What are the profitability for each product, region, channel and team?
+* What are the factors that influence the sales performance, such as price, discount, demand?
 * What are the opportunities and challenges for increasing sales and revenue?
 * What are the best practices and lessons learned from the sales data?
 * How can the sales strategy be improved and optimized based on the sales analysis?
@@ -49,8 +50,6 @@ Metrics will help us measure and evaluate the sales performance, and that can pr
 * Total sales per year/quarter/month
 * Total sales per region/state/county/product/channel/teams
 * Average order value
-* Conversion rate
-* Customer acquisition cost
 * Customer lifetime value
 * Sales variance
 * Sales forecast accuracy 
@@ -123,7 +122,7 @@ The dataset was created 3 years ago. Clearly it is outdated.
 | type | str | Type of region to which the store belongs |
 | latitude | float | Latitude of the individual store |
 | longitude | float | Longitude of the individual store |
-| location |    | Coordinates of the store location|
+| location | text | Coordinates of the store location|
 | area_code | int | Area code of the store |
 | population | int | Location population |
 | household_income | int | Household income in USD of the store location |
@@ -153,20 +152,43 @@ The dataset was created 3 years ago. Clearly it is outdated.
 | region | str | Operating region of the sales person |
 
 ## Data Cleaning
+
 1. Created a backup copy of the dataset.
 2. Changed the column names to more consistent names.
     * Changed the sales_team column name to sales_representative. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. However, without more context or information about it, this is just an educated guess.
-4. Checked for duplicates using Remove duplicate option and checked missing values or inconsistent values by using filter function.
+4. Checked for duplicates using Remove duplicate option and missing values or inconsistent values using filter function.
 5. Checked the formatting of the datatypes. Changed the formatting of unit_price, unit_cost and discount_applied from number to currency($).
 6. Trimmed for white spaces using TRIM function.
 7. Removed redundant columns.
     * currency_code column from sales_orders sheet.
     * area_code,household_income, median_income, land_area, water_area, location from store_location sheet.
-8. In the store_location sheet, there are some duplicate entries in terms of city name. For example, Waterbury is a city in the U.S. state of Connecticut. On the other hand, the term "Waterbury Town" could refer to the town (township) of Waterbury, which is coextensive with the city. In many U.S. states, a "town" is a form of local government, similar to a city. However, the terms "city" and "town" can be used interchangeably in some contexts.
-There are 7 such pair of cities e.g., Bridgeport and Bridgeport (town) which has similar attributes in all other aspects.
 
 ## Data Processing
 
+Some Assumptions that I made for performing calculations on this sales data -
+
+1. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. 
+
+2. The term "discount applied" can be interpreted in different ways depending on the context. In your case, if the discount applied is 0.05, it could mean one of two things:
+
+      1. **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. You can calculate the discount amount as follows:
+
+    $$\text{Discount Amount} = \text{Unit Price} \times \text{Discount Rate}$$
+    $$\text{Discount Amount} = \$1775.5 \times 0.05 = \$88.775$$
+
+      2. **Absolute Discount**: If the discount applied is an absolute value, then 0.05 represents a discount of 5 cents. This is quite small compared to the unit price, and it's unlikely that this is the case given the values you've provided.
+
+From your description, it seems more likely that the discount applied is a percentage (5%). However, you might want to confirm this with the source of your data to be sure. If the discount is indeed 5%, then the discount amount would be \$88.775 as calculated above. The discounted price would then be the unit price minus the discount amount. 
+
+The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
+
+To calculate the profit, you should use the **Net Price** (or Sale Price), not the Unit Price. The reason is that the Net Price is the actual amount received from the customer after applying any discounts. 
+
+Here's how you can calculate the profit:
+
+$$\text{Profit} = \text{Net Price} - \text{Unit Cost}$$
+
+In this formula, the Net Price is the price the customer pays after discounts, and the Unit Cost is the cost to produce or acquire the product. The difference between these two amounts is your profit.
 
 ## Data Analysis
 
