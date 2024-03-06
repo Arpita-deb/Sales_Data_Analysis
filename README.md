@@ -1,4 +1,4 @@
-![image](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/df61bd86-7dbe-4b07-aff1-1683ddc88a60)# Sales Data Analysis using Excel and Power BI
+# Sales Data Analysis using Excel and Power BI
 ### Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
 
 ## Introduction
