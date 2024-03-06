@@ -1,4 +1,4 @@
-# Sales Data Analysis using Excel and Power BI
+![image](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/df61bd86-7dbe-4b07-aff1-1683ddc88a60)# Sales Data Analysis using Excel and Power BI
 ### Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
 
 ## Introduction
@@ -39,21 +39,18 @@ Asking SMART questions can help us explore and understand the sales data better,
 ## Important Metrics to measure:
 Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our sales analysis are -
 
-* Sales volume
-* Sales revenue
-* Sales growth rate
-* Sales mix
-* Sales trends
-* Profit per product
-* Total Revenue
-* Year-Over-Year Growth
-* Total sales per year/quarter/month
-* Total sales per region/state/county/product/channel/teams
-* Average order value
-* Customer lifetime value
-* Sales variance
-* Sales forecast accuracy 
-* Return on sales
+* Sales volume - The number of units of a product or service sold.
+* Sales revenue/ Total Revenue - The total amount of money received from selling goods or services. It's calculated as `Sales Revenue = Sales Volume * Selling Price`.
+* Sales growth rate - The percentage increase in sales over a specific period. It's calculated as `Sales Growth Rate = (Current Period Sales - Previous Period Sales) / Previous Period Sales * 100%`.
+* Sales mix - The proportion of each product sold relative to total sales.
+* Sales trends - Patterns or tendencies in sales over a period of time.
+* Profit per product - The difference between the selling price and the cost of a product. It's calculated as `Profit per Product = Selling Price - Cost of Goods Sold`.
+* Year-Over-Year Growth - The percentage change in a variable over a year. It's calculated as `Year-Over-Year Growth = (Current Year Value - Last Year Value) / Last Year Value * 100%`.
+* Total sales per year/quarter/month - The total sales volume or revenue during a specific time period.
+* Total sales per region/state/county/product/channel/teams - The total sales volume or revenue for a specific category.
+* Average order value - The average amount spent each time a customer places an order. It's calculated as `Average Order Value = Total Revenue / Number of Orders`.
+* Sales variance - The difference between actual sales and forecasted sales.
+* Sales forecast accuracy - The closeness of the forecasted sales to the actual sales. It's calculated as `Sales Forecast Accuracy = 1 - (Absolute Error / Actual Sales)`.
 
 ## Tools used
 
@@ -155,40 +152,51 @@ The dataset was created 3 years ago. Clearly it is outdated.
 
 1. Created a backup copy of the dataset.
 2. Changed the column names to more consistent names.
-    * Changed the sales_team column name to sales_representative. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. However, without more context or information about it, this is just an educated guess.
-4. Checked for duplicates using Remove duplicate option and missing values or inconsistent values using filter function.
-5. Checked the formatting of the datatypes. Changed the formatting of unit_price, unit_cost and discount_applied from number to currency($).
-6. Trimmed for white spaces using TRIM function.
-7. Removed redundant columns.
+    * Changed the sales_team column name to sales_representative.
+3. Checked for duplicates using Remove duplicate option and missing values or inconsistent values using filter function.
+4. Checked the formatting of the datatypes. Changed the formatting of unit_price, unit_cost and discount_applied from number to currency($).
+5. Trimmed for white spaces using TRIM function.
+6. Removed redundant columns.
     * currency_code column from sales_orders sheet.
     * area_code,household_income, median_income, land_area, water_area, location from store_location sheet.
 
 ## Data Processing
 
-Some Assumptions that I made for performing calculations on this sales data -
+### Some Assumptions for performing calculations on this data -
 
-1. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. 
+1. In many organizations, the term "sales team" often refers to a group of sales representatives. Since the `sales_team` column in our `sales_team` sheet contains individual names, those could indeed be the names of sales representatives. However, without more context or information about it, this is just an educated guess.
 
-2. The term "discount applied" can be interpreted in different ways depending on the context. In your case, if the discount applied is 0.05, it could mean one of two things:
+2. The term "discount applied" is a bit vague. In our case, if the discount applied is 0.05, it could mean one of two things:
 
       1. **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. You can calculate the discount amount as follows:
 
-    $$\text{Discount Amount} = \text{Unit Price} \times \text{Discount Rate}$$
-    $$\text{Discount Amount} = \$1775.5 \times 0.05 = \$88.775$$
+    Discount Amount = Unit Price * Discount Rate
 
-      2. **Absolute Discount**: If the discount applied is an absolute value, then 0.05 represents a discount of 5 cents. This is quite small compared to the unit price, and it's unlikely that this is the case given the values you've provided.
+    Discount Amount = $1775.5 * 0.05 = $88.775
+   
+      2. **Absolute Discount**: If the discount applied is an absolute value, then 0.05 represents a discount of 5 cents. This is quite small compared to the unit price, and it's unlikely that this is the case given the values in our dataset.
 
-From your description, it seems more likely that the discount applied is a percentage (5%). However, you might want to confirm this with the source of your data to be sure. If the discount is indeed 5%, then the discount amount would be \$88.775 as calculated above. The discounted price would then be the unit price minus the discount amount. 
+Therefore I am treating the discount applied (or discount rate) as percentage discount which corresponds to values 5%, 7.5%, 10%, 15%, 20%, 30% and 40% discount.
 
-The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
+### New columns/attributes for performing calculations
 
-To calculate the profit, you should use the **Net Price** (or Sale Price), not the Unit Price. The reason is that the Net Price is the actual amount received from the customer after applying any discounts. 
+In order to perform sales data analysis, I created some columns based on the columns already present in the sales_order_sheet. These are -
 
-Here's how you can calculate the profit:
+* order_duration(days) - This feature can be calculated by subtracting the order_date from the delivery_date. It can indicate how long it takes for an order to be delivered, which can affect customer satisfaction and loyalty.
 
-$$\text{Profit} = \text{Net Price} - \text{Unit Cost}$$
+   `order duration = delivery date - order date`
 
-In this formula, the Net Price is the price the customer pays after discounts, and the Unit Cost is the cost to produce or acquire the product. The difference between these two amounts is your profit.
+* discount_amount - A discount has been offered when the price of an item is reduced and sold. The term "discount percentage" or "discount rate" refers to the price reduction represented as a percentage.
+
+   `discount amount = unit price * discount rate`
+
+* net_price - The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
+
+   `net price = unit price - discount amount`
+
+* profit(gross) - In general, the profit is defined as the amount gained by selling a product, which should be more than the cost price of the product.
+
+   `Profit = (Net Price - Unit Cost)* order quantity`
 
 ## Data Analysis
 
