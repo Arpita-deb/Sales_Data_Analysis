@@ -182,10 +182,14 @@ Therefore I am treating the discount applied (or discount rate) as percentage di
 
 In order to perform sales data analysis, I created some columns based on the columns already present in the sales_order_sheet. These are -
 
-* order_duration(days) - This feature can be calculated by subtracting the order_date from the delivery_date. It can indicate how long it takes for an order to be delivered, which can affect customer satisfaction and loyalty.
+* order_duration(days) - This feature can be calculated by subtracting the order_date from the delivery_date, then changing the formatting to General. It can indicate how long it takes for an order to be delivered, which can affect customer satisfaction and loyalty.
 
    `order duration = delivery date - order date`
 
+* lead_time (days) - It is the number of days between procurement and delivery for each order. In Excel sheet substracted procurement date from delivery date and formatting the result in General.
+
+   `lead_time = delivery date - procurement date`
+  
 * discount_amount - A discount has been offered when the price of an item is reduced and sold. The term "discount percentage" or "discount rate" refers to the price reduction represented as a percentage.
 
    `discount amount = unit price * discount rate`
@@ -197,6 +201,30 @@ In order to perform sales data analysis, I created some columns based on the col
 * profit(gross) - In general, the profit is defined as the amount gained by selling a product, which should be more than the cost price of the product.
 
    `Profit = (Net Price - Unit Cost)* order quantity`
+
+### Adding New Columns
+
+Extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). Using TEXT function, converted the number into month name. The function is - =TEXT(F41*29, "mmmm"). 
+
+### Merging of columns from other datasets
+
+Our working data is the sales_order_sheet and along the quantitative data(cost, profit, quantity etc), we also need qualitative data (e.g., product name, sales representative, region, customer name etc). 
+Using VLOOKUP I merged these columns with our sales_order_sheet -
+* customer_name from customer sheets
+* sales_representative from sales_team_sheet
+* city from store_locations_sheet
+* county from store_locations_sheet 
+* state from store_locations_sheet
+* region from region_sheet
+* product from product_sheet
+
+### Removing redundant columns
+
+Now that we have all the required columns we need to analysis the sales data,we can hide the columns that are not important for the analysis. So, I hid these columns to keep our dataset clean and less cumbersome to manage. 
+* warehouse_code
+* customer_id
+* product_id
+* sales_team_id
 
 ## Data Analysis
 
@@ -216,3 +244,4 @@ In order to perform sales data analysis, I created some columns based on the col
 ## References
 
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
+* [How to Convert Month Number to Month Name in Excel](https://spreadsheetplanet.com/convert-month-number-to-name-excel/)
