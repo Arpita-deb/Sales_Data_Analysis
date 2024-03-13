@@ -192,7 +192,7 @@ In order to perform sales data analysis, I created some columns based on the col
   
 * discount_amount - A discount has been offered when the price of an item is reduced and sold. The term "discount percentage" or "discount rate" refers to the price reduction represented as a percentage.
 
-   `discount amount = unit price * discount rate`
+   `discount amount = unit price x discount rate`
 
 * net_price - The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
 
@@ -200,11 +200,21 @@ In order to perform sales data analysis, I created some columns based on the col
 
 * profit(gross) - In general, the profit is defined as the amount gained by selling a product, which should be more than the cost price of the product.
 
-   `Profit = (Net Price - Unit Cost)* order quantity`
+   `Profit = (Net Price - Unit Cost) x order quantity`
+
+* revenue - Revenue is typically calculated by multiplying the price of a product by the quantity sold. Here’s the basic formula:
+
+   `Revenue= Price per unit × Number of units sold`
+
+  Since the dataset includes discounts, I should take them into account when calculating revenue. The formula would be:
+
+   `Revenue= (Unit Price−Discount) × Quantity Sold = net price x quantity sold` 
 
 ### Adding New Columns
 
-Extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). Using TEXT function, converted the number into month name. The function is - =TEXT(F41*29, "mmmm"). 
+Extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). Using TEXT function, converted the number into month name. The function is - =TEXT(F41*29, "mmmm").
+
+Also calculated the quarter with this formula: ROUNDUP(MONTH(A2)/3,0).
 
 ### Merging of columns from other datasets
 
@@ -227,6 +237,70 @@ Now that we have all the required columns we need to analysis the sales data,we 
 * sales_team_id
 
 ## Data Analysis
+
+From this analysis I wanted to find answers to these essential questions:
+
+### 1. **Understand overall sales performance**:
+  
+   - How has the **sales revenue trended over time**?
+   
+
+
+
+From the 2 pivot tables we can see 2020 had the highest total profit. And further break down of the years into months shows little variation among the sales, except for the July.
+
+   - Which **sales channel** contributes the most to the overall revenue?
+
+### 2. **Analyze sales by product**:
+   
+   - Which products are the **best sellers** in terms of **quantity** and **revenue**?
+   
+   - Are there any products that consistently **underperform** in terms of quantity and revenue?
+
+### 3. **Evaluate sales team performance**:
+   
+   - How does each **sales team** contribute to the overall sales revenue?
+
+### 4. **Geographical analysis**:
+   
+   - Which **regions** exhibit the highest and lowest sales performance?
+   
+   - Are there any **regional variations** in demand or customer preferences?
+
+### 5. **Seasonal patterns**:
+   
+   -  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
+   
+### 6. **Customer segmentation**:
+   
+   - Can we identify **customer segments** based on purchasing behavior (e.g., high-value customers, frequent buyers)?
+   
+   - How do these segments impact regional sales?
+
+### 7. **Store location impact**:
+   
+   - How do different **store locations** contribute to overall sales?
+   
+   - Are there specific regions where stores perform exceptionally well?
+
+### 8. **Sales forecasting**:
+   
+   - Can we **predict future sales** based on historical data and regional patterns?
+   
+   - What are the expected sales trends for the next quarter or year?
+
+### 9. **Channel effectiveness**:
+   
+   - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
+   
+   - Are there opportunities to optimize channel distribution?
+
+### 10. **Correlations and causality**:
+    
+   - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
+   
+   - Can we establish **causal relationships** (e.g., marketing campaigns, store openings) impacting sales?
+
 
 
 ## Data Visualization
