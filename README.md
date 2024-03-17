@@ -244,57 +244,75 @@ From this analysis I wanted to find answers to these essential questions:
   
    - How has the **sales revenue trended over time**?
    
+![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
+
 ![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
-
-
-
-
 
 From the 2 pivot tables we can see 2020 had the highest total profit. And further break down of the years into months shows little variation among the sales, except for the July.
 
    - Which **sales channel** contributes the most to the overall revenue?
 
+     ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
+
 ### 2. **Analyze sales by product**:
    
    - Which products are the **best sellers** in terms of **quantity** and **revenue**?
+
+![high performing pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/992ab9d9-c1bf-40db-8c34-ab3f62e667db)
+
+![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
+  
+   ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
    
    - Are there any products that consistently **underperform** in terms of quantity and revenue?
 
 ### 3. Analyze sales by Companies:
 
  - What are the top 10 companies in terms of overall **revenue**?
-   
+
+![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
+
+
+![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/45f128bc-4894-4871-91d7-ac9b2b8101f6) 
+
 ![top 10 companies](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/583ab986-35e8-49a8-9573-26525815ee26)
 
 ### 3. **Evaluate sales team performance**:
    
    - How does each **sales team** contribute to the overall sales revenue?
 
+![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
+
+![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
+
 ![top 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9a18fd4-16a7-453d-8214-07dcf58c5627)
 
 ### 4. **Geographical analysis**:
    
    - Which **regions** exhibit the highest and lowest sales performance?
+     ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
      
    ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c41faeda-293f-4b73-9f0c-86cea319954c)
+
+![sales by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82b31253-0c0d-43db-b323-d57ce475323c)
+
+![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
    
    - Are there any **regional variations** in demand or customer preferences?
 
 ### 5. **Seasonal patterns**:
    
    -  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
-   
-### 6. **Customer segmentation**:
-   
-   - Can we identify **customer segments** based on purchasing behavior (e.g., high-value customers, frequent buyers)?
-   
-   - How do these segments impact regional sales?
 
 ### 7. **Store location impact**:
    
    - How do different **store locations** contribute to overall sales?
-   
+
+   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
+  
    - Are there specific regions where stores perform exceptionally well?
+
+![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
 
 ### 8. **Sales forecasting**:
    
@@ -305,18 +323,23 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
 ### 9. **Channel effectiveness**:
    
    - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
-   
+
+
    - Are there opportunities to optimize channel distribution?
 
 ### 10. **Correlations and causality**:
     
    - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
-   
-   - Can we establish **causal relationships** (e.g., marketing campaigns, store openings) impacting sales?
-
-
 
 ## Data Visualization
+
+
+
+
+
+
+
+
 
 
 ## Results
