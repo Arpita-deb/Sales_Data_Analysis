@@ -244,6 +244,9 @@ From this analysis I wanted to find answers to these essential questions:
   
    - How has the **sales revenue trended over time**?
    
+![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
+
+
 
 
 
@@ -257,13 +260,23 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
    
    - Are there any products that consistently **underperform** in terms of quantity and revenue?
 
+### 3. Analyze sales by Companies:
+
+ - What are the top 10 companies in terms of overall **revenue**?
+   
+![top 10 companies](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/583ab986-35e8-49a8-9573-26525815ee26)
+
 ### 3. **Evaluate sales team performance**:
    
    - How does each **sales team** contribute to the overall sales revenue?
 
+![top 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9a18fd4-16a7-453d-8214-07dcf58c5627)
+
 ### 4. **Geographical analysis**:
    
    - Which **regions** exhibit the highest and lowest sales performance?
+     
+   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c41faeda-293f-4b73-9f0c-86cea319954c)
    
    - Are there any **regional variations** in demand or customer preferences?
 
