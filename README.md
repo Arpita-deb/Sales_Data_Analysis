@@ -324,6 +324,7 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
    
    - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
 
+![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
 
    - Are there opportunities to optimize channel distribution?
 
