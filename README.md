@@ -245,38 +245,53 @@ After the cleaning and preprocessing the datasets, we end up with a dataset with
 ### 1. Exploratory Data Analysis (EDA):
  The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
 
+* **Sales Channel:**
    - Which **sales channel** contributes the most to the overall revenue?
 
        ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
-   
+
+* **Products:**
    - Which products are the **best sellers** in terms of **quantity** and **revenue**?
 
       ![high performing pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/992ab9d9-c1bf-40db-8c34-ab3f62e667db)
 
-      ![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
-  
-      ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
+We can see that Accessories, Platters, Cocktail Glasses, Serveware, Rugs and Collectibles are best sellers in terms of both quantity and revenue.
    
    - Are there any products that consistently **underperform** in terms of quantity and revenue?
 
- 
-   - What are the top 10 companies in terms of overall **revenue**?
+ ![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
 
-      ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
+We can see that Pillows, Bean Bags, Bedroom Furniture, Vases, Cookware, Computers, Floor Lamps, Wall Coverings, Outdoor Decor, Audio, Candles and Outdoor Furniture have performed worse both in terms of revenue and quantity sold.
 
-      ![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/45f128bc-4894-4871-91d7-ac9b2b8101f6) 
+The bar chart shows the products in blue with revenue higher than average revenue($1,556,243) per product and the orange ones lower than average revenue. This gives us an idea of how the products are faring in the marketplace.
+  
+   ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
 
-      ![top 10 companies](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/583ab986-35e8-49a8-9573-26525815ee26)
-   
-   - How does each **sales team** contribute to the overall sales revenue?
+ * **Companies:**
 
-      ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
+- What are the top 10 companies in terms of overall **revenue**?
 
-      ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
 
-      ![top 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9a18fd4-16a7-453d-8214-07dcf58c5627)
+- What are the least 10 companies in terms of overall **revenue**?
 
-   
+
+
+
+The bar chart shows the products in blue with revenue higher than average revenue($1,462,869) per company and the orange ones lower than average revenue.
+
+   ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
+
+* **Salesperson:**
+   - What are the best and worst performing salesperson? How does each **salesperson** contribute to the overall sales revenue?
+
+    ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
+
+    
+
+The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
+
+   ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
+     
    - Which **regions** exhibit the highest and lowest sales performance?
 
       ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
