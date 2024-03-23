@@ -253,13 +253,13 @@ After the cleaning and preprocessing the datasets, we end up with a dataset with
 * **Products:**
    - Which products are the **best sellers** in terms of **quantity** and **revenue**?
 
-      ![high performing pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/992ab9d9-c1bf-40db-8c34-ab3f62e667db)
+![top 10 pdts rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/869df7d6-0b85-43f8-90e8-e98a7f8f3228) ![top 10 pdt quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5e5944de-e5dc-41db-a731-a2f058082386)
 
 We can see that Accessories, Platters, Cocktail Glasses, Serveware, Rugs and Collectibles are best sellers in terms of both quantity and revenue.
    
    - Are there any products that consistently **underperform** in terms of quantity and revenue?
 
- ![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
+ ![pdt low rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/49e238d7-cd1d-4ce0-b3a7-4413aefb9353)  ![pdt low quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/6cdbe2b7-de8c-44e1-a5bd-04b6cd1b745e) 
 
 We can see that Pillows, Bean Bags, Bedroom Furniture, Vases, Cookware, Computers, Floor Lamps, Wall Coverings, Outdoor Decor, Audio, Candles and Outdoor Furniture have performed worse both in terms of revenue and quantity sold.
 
@@ -274,6 +274,7 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
 - What are the least 10 companies in terms of overall **revenue**?
 
+![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
 
 
 
@@ -286,7 +287,7 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
     ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
 
-    
+    ![bottom 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b99b2b9d-9a8b-4fa8-a323-6126737675cb)
 
 The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
 
