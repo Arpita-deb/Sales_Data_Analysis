@@ -69,16 +69,16 @@ The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world
 6. sales_team_sheet
 
 ### Reliability and Originality:
-There is no information how the data is collected or preprocessed. Since this dataset has been provided by Coursera in this capstone project we can assume its reliability and originality.
+There is no information how the data is collected or preprocessed. For the purpose of our analysis, i.e., to study sales dynamics, share the results through a PowerBI dashboard and performing a time series analysis, this dataset is adequate. 
 
 ### Comprehensiveness:
-The data contains information that may help us find the answer to the key questions.
+The data contains information that may help us find the answer to the key questions. So it is comprehensive.
 
 ### Citation:
 There is no external citation for this dataset. One can visit [data.world](https://data.world/dataman-udit/us-regional-sales-data) for basic informations.
 
 ### Current:
-The dataset was created 3 years ago. Clearly it is outdated.
+The dataset was created 3 years ago.
 
 ## Data Dictionary
 
@@ -168,7 +168,7 @@ The dataset was created 3 years ago. Clearly it is outdated.
 
 2. The term "discount applied" is a bit vague. In our case, if the discount applied is 0.05, it could mean one of two things:
 
-      1. **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. You can calculate the discount amount as follows:
+      1. **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. One can calculate the discount amount as follows:
 
     Discount Amount = Unit Price * Discount Rate
 
@@ -186,7 +186,7 @@ In order to perform sales data analysis, I created some columns based on the col
 
    `order duration = delivery date - order date`
 
-* lead_time (days) - It is the number of days between procurement and delivery for each order. In Excel sheet substracted procurement date from delivery date and formatting the result in General.
+* lead_time (days) - It is the number of days between procurement and delivery for each order. In Excel sheet, I substracted procurement date from delivery date and formatting the result in General.
 
    `lead_time = delivery date - procurement date`
   
@@ -202,7 +202,7 @@ In order to perform sales data analysis, I created some columns based on the col
 
    `Profit = (Net Price - Unit Cost) x order quantity`
 
-* revenue - Revenue is typically calculated by multiplying the price of a product by the quantity sold. Here’s the basic formula:
+* revenue - Revenue is typically calculated by multiplying the price of a product by the quantity sold.
 
    `Revenue= Price per unit × Number of units sold`
 
@@ -212,107 +212,112 @@ In order to perform sales data analysis, I created some columns based on the col
 
 ### Adding New Columns
 
-Extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). Using TEXT function, converted the number into month name. The function is - =TEXT(F41*29, "mmmm").
+I extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). So, using TEXT function, I converted the number into month name. The function is - =TEXT(F41*29, "mmmm").
 
-Also calculated the quarter with this formula: ROUNDUP(MONTH(A2)/3,0).
+I also calculated the quarter by using ROUNDUP(MONTH(A2)/3,0) formula.
 
 ### Merging of columns from other datasets
 
-Our working data is the sales_order_sheet and along the quantitative data(cost, profit, quantity etc), we also need qualitative data (e.g., product name, sales representative, region, customer name etc). 
-Using VLOOKUP I merged these columns with our sales_order_sheet -
-* customer_name from customer sheets
-* sales_representative from sales_team_sheet
-* city from store_locations_sheet
-* county from store_locations_sheet 
-* state from store_locations_sheet
-* region from region_sheet
-* product from product_sheet
+Our working data is the sales_order_sheet and along with the quantitative data(cost, profit, quantity etc), we also need qualitative data (e.g., product name, sales representative, region, customer name etc). 
+Therefore, using VLOOKUP I merged these columns with our sales_order_sheet -
+
+* customer_name from *customer_sheet*
+* sales_representative from *sales_team_sheet*
+* city from *store_locations_sheet*
+* county from *store_locations_sheet* 
+* state from *store_locations_sheet*
+* region from *region_sheet*
+* product from *product_sheet*
 
 ### Removing redundant columns
 
-Now that we have all the required columns we need to analysis the sales data,we can hide the columns that are not important for the analysis. So, I hid these columns to keep our dataset clean and less cumbersome to manage. 
+Now that we have all the required columns we need to analysis the sales data, I removed the columns that are not important for the analysis to keep our dataset clean and less cumbersome to manage. 
+
 * warehouse_code
 * customer_id
 * product_id
 * sales_team_id
 
+After the cleaning and preprocessing the datasets, we end up with a dataset with 7991 rows and 24 columns namely - order_number, sales_channel, order_date, order_month, quarter, order_year, lead_time (days), order_duration(days), salesperson, customer, store_id, city, county, state, region, product, order_quantity, discount_applied, unit_price, unit_cost, discount_amount, net_price, revenue and profit.
+
 ## Data Analysis
 
-From this analysis I wanted to find answers to these essential questions:
+### 1. Exploratory Data Analysis (EDA):
+ The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
 
-### 1. **Understand overall sales performance**:
+   - Which **sales channel** contributes the most to the overall revenue?
+
+       ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
+   
+   - Which products are the **best sellers** in terms of **quantity** and **revenue**?
+
+      ![high performing pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/992ab9d9-c1bf-40db-8c34-ab3f62e667db)
+
+      ![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
   
-   - How has the **sales revenue trended over time**?
+      ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
+   
+   - Are there any products that consistently **underperform** in terms of quantity and revenue?
+
+ 
+   - What are the top 10 companies in terms of overall **revenue**?
+
+      ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
+
+      ![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/45f128bc-4894-4871-91d7-ac9b2b8101f6) 
+
+      ![top 10 companies](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/583ab986-35e8-49a8-9573-26525815ee26)
+   
+   - How does each **sales team** contribute to the overall sales revenue?
+
+      ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
+
+      ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
+
+      ![top 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9a18fd4-16a7-453d-8214-07dcf58c5627)
+
+   
+   - Which **regions** exhibit the highest and lowest sales performance?
+
+      ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
+     
+      ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c41faeda-293f-4b73-9f0c-86cea319954c)
+
+      ![sales by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82b31253-0c0d-43db-b323-d57ce475323c)
+
+      ![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
+   
+   - Are there any **regional variations** in demand or customer preferences?
+
+
+   
+   - How do different **store locations** contribute to overall sales?
+
+      ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
+  
+   - Are there specific regions where stores perform exceptionally well?
+
+      ![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
+
+   - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
+
+     ![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
+
+   - Are there opportunities to optimize channel distribution?
+
+### 5. **Seasonal patterns**:
+
+  - How has the **sales revenue trended over time**?
    
 ![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
 
 ![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
 
 From the 2 pivot tables we can see 2020 had the highest total profit. And further break down of the years into months shows little variation among the sales, except for the July.
-
-   - Which **sales channel** contributes the most to the overall revenue?
-
-     ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
-
-### 2. **Analyze sales by product**:
-   
-   - Which products are the **best sellers** in terms of **quantity** and **revenue**?
-
-![high performing pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/992ab9d9-c1bf-40db-8c34-ab3f62e667db)
-
-![low performing pdts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3eef47ab-46e3-46f5-9936-a471164acb3b)
-  
-   ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
-   
-   - Are there any products that consistently **underperform** in terms of quantity and revenue?
-
-### 3. Analyze sales by Companies:
-
- - What are the top 10 companies in terms of overall **revenue**?
-
-![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
-
-
-![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/45f128bc-4894-4871-91d7-ac9b2b8101f6) 
-
-![top 10 companies](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/583ab986-35e8-49a8-9573-26525815ee26)
-
-### 3. **Evaluate sales team performance**:
-   
-   - How does each **sales team** contribute to the overall sales revenue?
-
-![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
-
-![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
-
-![top 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9a18fd4-16a7-453d-8214-07dcf58c5627)
-
-### 4. **Geographical analysis**:
-   
-   - Which **regions** exhibit the highest and lowest sales performance?
-     ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
-     
-   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c41faeda-293f-4b73-9f0c-86cea319954c)
-
-![sales by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82b31253-0c0d-43db-b323-d57ce475323c)
-
-![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
-   
-   - Are there any **regional variations** in demand or customer preferences?
-
-### 5. **Seasonal patterns**:
    
    -  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
 
-### 7. **Store location impact**:
-   
-   - How do different **store locations** contribute to overall sales?
 
-   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
-  
-   - Are there specific regions where stores perform exceptionally well?
-
-![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
 
 ### 8. **Sales forecasting**:
    
@@ -320,19 +325,11 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
    
    - What are the expected sales trends for the next quarter or year?
 
-### 9. **Channel effectiveness**:
-   
-   - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
-
-![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
-
-   - Are there opportunities to optimize channel distribution?
 
 ### 10. **Correlations and causality**:
     
    - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
 
-## Data Visualization
 
 
 
