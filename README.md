@@ -246,20 +246,32 @@ After the cleaning and preprocessing the datasets, we end up with a dataset with
  The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
 
 * **Sales Channel:**
-   - Which **sales channel** contributes the most to the overall revenue?
 
-       ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
+- Which **sales channel** contributes the most to the overall revenue?
+
+   ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
+
+- How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
+
+     ![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
+
+- Are there specific regions where stores perform exceptionally well?
+
+   ![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
 
 * **Products:**
-   - Which products are the **best sellers** in terms of **quantity** and **revenue**?
 
-![top 10 pdts rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/869df7d6-0b85-43f8-90e8-e98a7f8f3228) ![top 10 pdt quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5e5944de-e5dc-41db-a731-a2f058082386)
+- Which products are the **best sellers** in terms of **quantity** and **revenue**?
+
+   ![top 10 pdts rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/869df7d6-0b85-43f8-90e8-e98a7f8f3228) 
+   ![top 10 pdt quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5e5944de-e5dc-41db-a731-a2f058082386)
 
 We can see that Accessories, Platters, Cocktail Glasses, Serveware, Rugs and Collectibles are best sellers in terms of both quantity and revenue.
    
-   - Are there any products that consistently **underperform** in terms of quantity and revenue?
+- Are there any products that consistently **underperform** in terms of quantity and revenue?
 
- ![pdt low rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/49e238d7-cd1d-4ce0-b3a7-4413aefb9353)  ![pdt low quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/6cdbe2b7-de8c-44e1-a5bd-04b6cd1b745e) 
+   ![pdt low rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/49e238d7-cd1d-4ce0-b3a7-4413aefb9353)  
+   ![pdt low quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/6cdbe2b7-de8c-44e1-a5bd-04b6cd1b745e) 
 
 We can see that Pillows, Bean Bags, Bedroom Furniture, Vases, Cookware, Computers, Floor Lamps, Wall Coverings, Outdoor Decor, Audio, Candles and Outdoor Furniture have performed worse both in terms of revenue and quantity sold.
 
@@ -271,63 +283,61 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
 - What are the top 10 companies in terms of overall **revenue**?
 
+   ![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03e6bea2-b5d2-4ba2-b699-74894310d5a3)
 
 - What are the least 10 companies in terms of overall **revenue**?
 
-![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
+   ![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
 
-
-
-The bar chart shows the products in blue with revenue higher than average revenue($1,462,869) per company and the orange ones lower than average revenue.
+   The bar chart shows the products in blue with revenue higher than average revenue($1,462,869) per company and the orange ones lower than average revenue.
 
    ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
 
 * **Salesperson:**
-   - What are the best and worst performing salesperson? How does each **salesperson** contribute to the overall sales revenue?
+   
+- What are the best and worst performing salesperson? How does each **salesperson** contribute to the overall sales revenue?
 
-    ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
+   ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
 
-    ![bottom 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b99b2b9d-9a8b-4fa8-a323-6126737675cb)
+   ![bottom 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b99b2b9d-9a8b-4fa8-a323-6126737675cb)
 
-The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
+   The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
 
    ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
      
-   - Which **regions** exhibit the highest and lowest sales performance?
+* **Regions**:
 
-      ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
-     
-      ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c41faeda-293f-4b73-9f0c-86cea319954c)
+- Which **regions** exhibit the highest and lowest sales performance?
 
-      ![sales by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82b31253-0c0d-43db-b323-d57ce475323c)
-
-      ![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
+   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
    
-   - Are there any **regional variations** in demand or customer preferences?
+   ![sales breakdown by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/9e19cf06-d9b6-4241-b301-0149545fd71d)
 
-
-   
-   - How do different **store locations** contribute to overall sales?
-
-      ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
+- Are there any **regional variations** in demand or customer preferences?
+      
+   ![regional demand](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fe525d49-9a45-452e-a16c-17e51f15d264)
   
-   - Are there specific regions where stores perform exceptionally well?
+- Which **states** exhibit the highest and lowest sales performance?
+     
+   ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
+   ![top 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
+   ![bottom 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03af9e17-1fc9-45ae-a193-3d403e71cc67)
 
-      ![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
 
-   - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
+- Which cities exhibit the highest and lowest sales performance?
+  
+   ![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/e6fac995-8333-4179-9b6a-d458acd1af12)
+   ![bottom 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1fb85f90-d6b1-4bc3-9953-673c07da3260)
 
-     ![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
-
-   - Are there opportunities to optimize channel distribution?
+- Are there opportunities to optimize channel distribution?
 
 ### 5. **Seasonal patterns**:
 
-  - How has the **sales revenue trended over time**?
+- How has the **sales revenue trended over time**?
    
-![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
+   ![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
 
-![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
+   ![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
 
 From the 2 pivot tables we can see 2020 had the highest total profit. And further break down of the years into months shows little variation among the sales, except for the July.
    
@@ -346,9 +356,19 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
     
    - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
 
+![corrplot](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/4b88c19a-6006-4d09-b6a3-5b3e98d700a5)
 
+1. **Revenue and Order Quantity**: This is a logical correlation. The more units of a product sold (order quantity), the higher the total sales revenue. This is because revenue is calculated as `Quantity * Unit Price`. So, if the quantity increases, the revenue will also increase, assuming the unit price remains constant.
 
+2. **Revenue and Unit Price**: Similarly, the unit price of a product also directly affects revenue. If you sell a product at a higher price, the total revenue increases, assuming the quantity sold remains constant. 
 
+3. **Revenue and Net Price**: Net price is the actual price the customer pays after applying any discounts. If the net price is high, it means that the discounts given are less, leading to higher revenue.
+
+4. **Revenue and Profit**: Profit is the difference between the revenue and the cost. If the revenue is high and the cost is controlled, the profit will be high. Therefore, revenue and profit are usually positively correlated.
+
+As for causal relationships, both order quantity and unit price can be considered as having a causal relationship with revenue because changes in these variables directly cause changes in revenue. However, remember that correlation does not always imply causation, and other factors could be at play. For example, an increase in order quantity could be due to a successful marketing campaign, a seasonal effect, or a variety of other factors.
+
+Net price and profit, on the other hand, are derived from revenue, so they don't cause changes in revenue but are a result of changes in revenue.
 
 
 
@@ -369,3 +389,4 @@ From the 2 pivot tables we can see 2020 had the highest total profit. And furthe
 
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
 * [How to Convert Month Number to Month Name in Excel](https://spreadsheetplanet.com/convert-month-number-to-name-excel/)
+* [How to Calculate Correlation Coefficient in Excel (2 Easy Ways)](https://trumpexcel.com/correlation-coefficient-excel/)
