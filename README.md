@@ -373,8 +373,7 @@ Net price and profit, on the other hand, are derived from revenue, so they don't
 
 
 
-
-
+![Screenshot (382)](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/65f0cb48-d148-4b82-bb75-7718c9c09c65)
 
 ## Results
 
