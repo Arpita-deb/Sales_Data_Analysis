@@ -422,7 +422,7 @@ If we transform the sales data we can apply time series analysis to predict expe
 ![Lb estimates for snaive](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/9216a7e8-9270-447d-958d-84d67adbfe2a)
 ![Residuals seasonal naive method](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/d44e3f8d-39c5-4edd-a9ae-e0d4bea9ed89)
 
-   - **Estimates from Exponential Smooting model** -
+   - **Estimates from Exponential Smoothing model** -
 
 ![ets estimates](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3dbaf92f-9ebe-4a56-9fd4-ccb11ec73f2f)
 ![lb estimate for ets](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/ec47c4d6-b2e7-4133-844c-dc857da2d1a3)
@@ -464,8 +464,6 @@ Since model selection involves a trade-off between simplicity and capturing the 
 ## Recommendations:
 
 
-
-
 ## Conclusion:
 From the analysis of US Regional Sales Data analysis, I've - 
 * Looked into the yearly trend of the sales revenue.
@@ -487,4 +485,4 @@ Some limitations of this project are-
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
 * [How to Convert Month Number to Month Name in Excel](https://spreadsheetplanet.com/convert-month-number-to-name-excel/)
 * [How to Calculate Correlation Coefficient in Excel (2 Easy Ways)](https://trumpexcel.com/correlation-coefficient-excel/)
-* [Time Series Analysis Tutorial](https://www.youtube.com/watch?v=dBNy_A6Zpcc)
+* [Time Series Forecasting Example in RStudio](https://www.youtube.com/watch?v=dBNy_A6Zpcc)
