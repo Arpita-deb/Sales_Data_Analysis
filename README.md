@@ -1,17 +1,7 @@
-# Sales Data Analysis using Excel and Power BI
-### Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
+# Sales Forecasting: Predictive Analysis with Excel and Power BI
 
 ## Introduction:
-The US regional sales data contain information about sales of 47 products ordered between May 2018 to December 2022. The products are sold across 367 stores located in 48 regions across the States. There are 4 sales channels, 50 customer (farms/companies) and 28 sales team. 
-
-## Stakeholders:
-These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for your sales analysis are -
-
-* Sales managers
-* Marketing managers
-* Product managers
-* Finance managers
-* Senior executives
+The dataset on regional sales in the US encompasses sales details for 47 distinct products spanning from May 2018 to December 2022. These products have been marketed through a network of stores distributed over 4 regions and 48 cities within the US. In this analysis, I will employ Microsoft Excel to probe into the data, utilize Power BI for data visualization, and apply R Programming Language for sales forecasting. My objective is to dissect the sales and revenue patterns annually and monthly, benchmarking them against past data, pinpoint the best and worst performing products, sales channels, regions, and sales representatives. Additionally, I aim to identify the variables influencing revenue and profit, uncover potential growth areas and obstacles in boosting sales and revenue. Ultimately, I will devise sales strategies aimed at resource optimization.
 
 ## Objectives:
 
@@ -23,18 +13,14 @@ The objectives of the sales analysis are -
 * Forecast future sales and revenue.
 * Generate reports and recommendations for improvement and optimization to share with key stakeholders.
 
-## Potential questions to ask:
+## Stakeholders:
+These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for your sales analysis are -
 
-Asking SMART questions can help us explore and understand the sales data better, and that can lead us to actionable insights and recommendations.
-
-* What are the total sales and revenue for each year, quarter, month, and week? How do they compare to the previous periods?
-* What are the sales and revenue breakdown by product, channel, team, and region? How do they compare to each other and to the market share?
-* What are the trends and seasonality of the sales data?
-* What are the profitability for each product, region, channel and team?
-* What are the factors that influence the sales performance, such as price, discount, demand?
-* What are the opportunities and challenges for increasing sales and revenue?
-* What are the best practices and lessons learned from the sales data?
-* How can the sales strategy be improved and optimized based on the sales analysis?
+* Sales managers
+* Marketing managers
+* Product managers
+* Finance managers
+* Senior executives
 
 ## Important Metrics to measure:
 Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our exploratory data analysis are -
