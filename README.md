@@ -1,10 +1,10 @@
 # Sales Data Analysis using Excel and Power BI
 ### Analyzing and visualizing fictitious sales data for an American company across the US regions using Excel and Power BI
 
-## Introduction
+## Introduction:
 The US regional sales data contain information about sales of 47 products ordered between May 2018 to December 2022. The products are sold across 367 stores located in 48 regions across the States. There are 4 sales channels, 50 customer (farms/companies) and 28 sales team. 
 
-## Stakeholders
+## Stakeholders:
 These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for your sales analysis are -
 
 * Sales managers
@@ -13,7 +13,7 @@ These are the people who are interested in the performance, trends, and insights
 * Finance managers
 * Senior executives
 
-## Objectives
+## Objectives:
 
 The objectives of the sales analysis are -
 * Assess overall sales trends and determine whether growth is occurring.
@@ -37,28 +37,31 @@ Asking SMART questions can help us explore and understand the sales data better,
 * How can the sales strategy be improved and optimized based on the sales analysis?
 
 ## Important Metrics to measure:
-Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our sales analysis are -
+Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our exploratory data analysis are -
 
 * Sales volume - The number of units of a product or service sold.
 * Sales revenue/ Total Revenue - The total amount of money received from selling goods or services. It's calculated as `Sales Revenue = Sales Volume * Selling Price`.
+* Profit per product - The difference between the selling price and the cost of a product. It's calculated as `Profit per Product = Selling Price - Cost of Goods Sold`.
+* Total sales per year/quarter/month - The total sales volume or revenue during a specific time period.
+* Total sales per region/state/county/product/channel/teams - The total sales volume or revenue for a specific category.
+
+Some more advanced sales metrics are -
+
+* Year-Over-Year Growth - The percentage change in a variable over a year. It's calculated as `Year-Over-Year Growth = (Current Year Value - Last Year Value) / Last Year Value * 100%`.
 * Sales growth rate - The percentage increase in sales over a specific period. It's calculated as `Sales Growth Rate = (Current Period Sales - Previous Period Sales) / Previous Period Sales * 100%`.
 * Sales mix - The proportion of each product sold relative to total sales.
 * Sales trends - Patterns or tendencies in sales over a period of time.
-* Profit per product - The difference between the selling price and the cost of a product. It's calculated as `Profit per Product = Selling Price - Cost of Goods Sold`.
-* Year-Over-Year Growth - The percentage change in a variable over a year. It's calculated as `Year-Over-Year Growth = (Current Year Value - Last Year Value) / Last Year Value * 100%`.
-* Total sales per year/quarter/month - The total sales volume or revenue during a specific time period.
-* Total sales per region/state/county/product/channel/teams - The total sales volume or revenue for a specific category.
 * Average order value - The average amount spent each time a customer places an order. It's calculated as `Average Order Value = Total Revenue / Number of Orders`.
 * Sales variance - The difference between actual sales and forecasted sales.
 * Sales forecast accuracy - The closeness of the forecasted sales to the actual sales. It's calculated as `Sales Forecast Accuracy = 1 - (Absolute Error / Actual Sales)`.
 
-## Tools used
+## Tools used:
 
 * Excel - For data cleaning and wrangling
 * Pivot Table - For analysing data
 * Power BI - For visualizing the data
 
-## About the Dataset
+## About the Dataset:
 
 The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world](https://data.world/dataman-udit/us-regional-sales-data). It consists of 6 tables, namely-
 1. sales_orders_sheet
@@ -80,7 +83,7 @@ There is no external citation for this dataset. One can visit [data.world](https
 ### Current:
 The dataset was created 3 years ago.
 
-## Data Dictionary
+## Data Dictionary:
 
 ### 1. sales_orders_sheet
 | Column Name | Type | Description |
@@ -148,7 +151,7 @@ The dataset was created 3 years ago.
 | sales_team | str | Sales person assigned |
 | region | str | Operating region of the sales person |
 
-## Data Cleaning
+## Data Cleaning:
 
 1. Created a backup copy of the dataset.
 2. Changed the column names to more consistent names.
@@ -160,7 +163,7 @@ The dataset was created 3 years ago.
     * currency_code column from sales_orders sheet.
     * area_code,household_income, median_income, land_area, water_area, location from store_location sheet.
 
-## Data Processing
+## Data Processing:
 
 ### Some Assumptions for performing calculations on this data -
 
@@ -240,7 +243,7 @@ Now that we have all the required columns we need to analysis the sales data, I 
 
 After the cleaning and preprocessing the datasets, we end up with a dataset with 7991 rows and 24 columns namely - order_number, sales_channel, order_date, order_month, quarter, order_year, lead_time (days), order_duration(days), salesperson, customer, store_id, city, county, state, region, product, order_quantity, discount_applied, unit_price, unit_cost, discount_amount, net_price, revenue and profit.
 
-## Data Analysis
+## Data Analysis:
 
 ### 1. Exploratory Data Analysis (EDA):
  The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
@@ -249,16 +252,20 @@ After the cleaning and preprocessing the datasets, we end up with a dataset with
 
 - Which **sales channel** contributes the most to the overall revenue?
 
-   ![rev by sales channel](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a94c1511-ce50-4d1f-98ab-49bda7da3035)
+  ![sales channel donut](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a40a64ea-5796-43f6-9832-94346be4f66b)
 
 - How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
 
-     ![rev breakdown by channel and region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b03721c5-3644-423b-8ee7-0db7e054fa69)
+  ![sales breakdown by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/4a21d071-e49f-4bef-b178-c4b9b40f91d6)
 
 - Are there specific regions where stores perform exceptionally well?
 
-   ![rev by sales channel in cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/7971603c-8f6d-4ef0-8859-40dab793a65b)
+From 2018 to 2020, the instore channel accounted for 41% of total revenue across all regions in the United States, outperforming the online channel. The wholesale channel had the smallest contribution at 11%.
 
+In the four regions of the United States, instore (approximately 14%) and online (around 10%) channels were the most successful. These channels were particularly dominant in the Western and Southern states compared to the distributor (about 5%) and wholesale (roughly 3%) channels. Therefore, the company could focus on enhancing these two channels to increase revenue in these areas.
+
+However, in the Midwestern and Northeastern regions, the contributions of these channels are more evenly matched. Thus, the company could consider improving all channels, with a particular focus on instore and online channels in the Midwest and Northeast.
+   
 * **Products:**
 
 - Which products are the **best sellers** in terms of **quantity** and **revenue**?
@@ -289,6 +296,8 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
    ![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
 
+   Medline, Apotheca, Ltd, and Pure Group have generated the highest revenue, while Avon Corp, WakeFern, and Wuxi Group are at the bottom.
+
    The bar chart shows the products in blue with revenue higher than average revenue($1,462,869) per company and the orange ones lower than average revenue.
 
    ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
@@ -301,6 +310,11 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
    ![bottom 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b99b2b9d-9a8b-4fa8-a323-6126737675cb)
 
+   Donald Reynolds, George Lewis, and Joshua Little are the top three salespeople in terms of total revenue generated. In terms of the highest average revenue, Donald Reynolds, Keith Griffin, and Joshua Little lead.
+
+   Joshua Bennett, Shawn Torres, and Carlos rank lowest in terms of total revenue.
+Shawn Wallace, Todd Roberts, and Shawn Torres are the least performing in terms of average revenue
+
    The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
 
    ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
@@ -309,9 +323,7 @@ The bar chart shows the products in blue with revenue higher than average revenu
 
 - Which **regions** exhibit the highest and lowest sales performance?
 
-   ![rev by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29cb7b8a-00f3-49fb-aa7b-0708a2cb1678)
-   
-   ![sales breakdown by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/9e19cf06-d9b6-4241-b301-0149545fd71d)
+   ![regional rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/95ea6981-36c4-4457-b9f0-4a2a5a4040b5)1678)
 
 - Are there any **regional variations** in demand or customer preferences?
       
@@ -319,10 +331,12 @@ The bar chart shows the products in blue with revenue higher than average revenu
   
 - Which **states** exhibit the highest and lowest sales performance?
      
-   ![Map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/82786913-62fe-40d4-96ce-2582b7b518ee)
+  ![rev map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2afec678-e00c-46c2-a02a-e2bcb3ed2b09)
+
+  The states with the highest performance are California (20.76%), Texas (10.10%), Illinois (7.88%), Florida (7.41%), and New York (4.84%). Conversely, Hawaii (0.2%), South Dakota (0.19%), and Arkansas (0.13%) are among the lowest-performing states.
+   
    ![top 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
    ![bottom 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03af9e17-1fc9-45ae-a193-3d403e71cc67)
-
 
 - Which cities exhibit the highest and lowest sales performance?
   
@@ -336,21 +350,22 @@ The bar chart shows the products in blue with revenue higher than average revenu
 - How has the **sales revenue trended over time**?
    
    ![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
-
-   ![monthly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dbc8d71e-3c45-4cdf-87b5-05c2223dc6ff)
-
-From the 2 pivot tables we can see 2020 had the highest total profit. And further break down of the years into months shows little variation among the sales, except for the July.
+   ![yearly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/095dd76b-c2a7-4039-8897-ff8e2098aea5)
    
-   -  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
+-  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
 
+* **2018**: Revenue escalates from May through August, then diminishes in October. A resurgence in revenue occurs from October to December.
 
+* **2019**: A decline in revenue is observed from January to February, stabilizing in March. A rise in April is followed by a gradual decrease until July. Revenue ascends again in August, falls in September and October, and climbs in November, only to fall once more as December concludes the year.
 
-### 8. **Sales forecasting**:
-   
-   - Can we **predict future sales** based on historical data and regional patterns?
-   
-   - What are the expected sales trends for the next quarter or year?
+* **2020**: Revenue consistently falls from January to March, then recovers until May. A drop is seen in June, with July marking the peak revenue for 2020, which then declines around September. A slight increase in October is followed by a stable revenue pattern for the remainder of the year.
 
+Regarding seasonal patterns, it appears that:
+- The mid-year months, particularly **May to August**, are generally associated with higher revenue, which could be linked to summer season promotions or events.
+- There's a noticeable dip in **October** across all three years, suggesting a potential seasonal downturn during this period.
+- The end-of-year months, **November and December**, often show an increase in revenue, likely due to holiday shopping and year-end sales events.
+
+These trends suggest that the business might benefit from strategic planning around these periods, possibly by boosting marketing efforts during the low seasons and capitalizing on the high seasons.
 
 ### 10. **Correlations and causality**:
     
@@ -371,20 +386,20 @@ As for causal relationships, both order quantity and unit price can be considere
 Net price and profit, on the other hand, are derived from revenue, so they don't cause changes in revenue but are a result of changes in revenue.
 
 
-
+## PowerBI Dashboard:
 
 ![Screenshot (382)](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/65f0cb48-d148-4b82-bb75-7718c9c09c65)
 
-## Results
+## Results:
 
 
 ## Recommendations:
 
 
-## Limitations
+## Limitations:
 
 
-## References
+## References:
 
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
 * [How to Convert Month Number to Month Name in Excel](https://spreadsheetplanet.com/convert-month-number-to-name-excel/)
