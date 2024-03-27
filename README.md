@@ -345,7 +345,7 @@ Shawn Wallace, Todd Roberts, and Shawn Torres are the least performing in terms 
 
 - Are there opportunities to optimize channel distribution?
 
-### 5. **Seasonal patterns**:
+* **Seasonal patterns**:
 
 - How has the **sales revenue trended over time**?
    
@@ -367,7 +367,7 @@ Regarding seasonal patterns, it appears that:
 
 These trends suggest that the business might benefit from strategic planning around these periods, possibly by boosting marketing efforts during the low seasons and capitalizing on the high seasons.
 
-### 10. **Correlations and causality**:
+* **Correlations and causality**:
     
    - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
 
@@ -390,17 +390,101 @@ Net price and profit, on the other hand, are derived from revenue, so they don't
 
 ![Screenshot (382)](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/65f0cb48-d148-4b82-bb75-7718c9c09c65)
 
-## Results:
+## Time Series Analysis:
 
+* Can we **predict future sales** based on historical data and regional patterns?
+
+If we transform the sales data we can apply time series analysis to predict expected sales trend for the next year. In order to do that I took the following steps -
+
+### 1. Data Transformation:
+   - Selected only order_date and revenue column in a different sheet.
+   - Using Pivot table aggregated the revenue data for each day of the year. This gave us 945 records of daily average sales data since May 31, 2018 to December 31 2020.
+   - Changed the formatting of the order_date and revenue columns to date and numeric respectively. 
+
+### 2. Preliminary Analysis:
+   - Installed the Time Series Analysis package 'fpp2' and loaded the data in R workspace.
+   - Changed the dataframe into a time series object using ts() routine and set frequency = 12 (for monthly data).
+   - Plotted the time series.
+   - ![time plot](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/62a8a399-12ae-468d-86c2-af7e44641eb4)
+   - Since the data is not stationary, I took first difference of the data to remove the trend. Using autoplot() I plotted the differenced time series plot.
+   - ![Differenced data](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/895a81a0-ccc1-48ac-88ca-3d441e342502)
+   - Next I investigated the seasonality using ggseasonplot().
+   - ![Seasonal plot](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/be14bfff-8bdc-40b4-b14a-b51c8aa545df)
+   - The plot shows weak seasonality.
+
+### 3. Fitting different models:
+   - In order to find the best fitted model for this data, I chose 3 models and estimated the coefficients, autocorrelation function, residuals' standard deviation and p-value from Ljung Box Test.
+   - The 3 models were - Seasonal Naive model, Exponential Smooting and Auto Regressive Integrated Moving Average (ARIMA) model.
+
+   - **Estimates from Seasonal Naive model** -
+  
+![snaive estimates](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3cb2ead9-7a50-47ec-870a-f563002781ba)
+![Lb estimates for snaive](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/9216a7e8-9270-447d-958d-84d67adbfe2a)
+![Residuals seasonal naive method](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/d44e3f8d-39c5-4edd-a9ae-e0d4bea9ed89)
+
+   - **Estimates from Exponential Smooting model** -
+
+![ets estimates](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/3dbaf92f-9ebe-4a56-9fd4-ccb11ec73f2f)
+![lb estimate for ets](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/ec47c4d6-b2e7-4133-844c-dc857da2d1a3)
+![Residuals from ETS](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/8b0c8c69-5089-424c-95bf-42d0ff038381)
+ 
+   - **Estimates from ARIMA model** -
+
+![arima estimates](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1bab7eab-cafd-4c62-91e2-a8532461cedb)
+![lb estimate for arima](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/23f4818e-9ba8-4212-b181-243e9ba2a480)
+![arima fitting](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/8d84a5aa-3dd0-493b-ac75-1ba1678243cc)
+![residuals from ARIMA](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2f3078e3-b866-4ca4-9fe7-9deaf4e7692f)
+
+### 4. Choosing the best model:
+   - To have a good model for prediction we need a model with low standard deviation (data should be grouped around the mean).
+   - And the p-value from Ljung-Box test should also be close to zero. A high p-value suggests the data shows no significant autocorrelation and can be considered as random.
+
+* **Autocorrelation and Randomness**:
+   - I've observed that there is **no significant autocorrelation** in our data based on the Ljung-Box test results. This suggests that the data behaves randomly.
+   - High p-values for all three models further support this randomness.
+
+* **Model Comparison**:
+   - Among the three models (Seasonal Naive, Exponential Smoothing, and ARIMA), I've highlighted two important metrics:
+     - **Exponential Smoothing Model**: Lowest standard deviation of residuals.
+     - **Seasonal Naive Model**: Lowest p-value.
+   - These metrics provide valuable insights into the performance of each model.
+
+* **Choosing ARIMA**:
+   - Despite the higher deviation and p-value for the ARIMA(0,1,1)(0,1,0) model, your rationale for selecting is:
+     - ARIMA accounts for **moving average terms** and **seasonality**, which can capture more complex dynamics.
+     - While simpler models may have lower deviation or p-values, the ARIMA model's consideration of these additional factors makes it a better choice for capturing the underlying patterns in your data.
+
+Since model selection involves a trade-off between simplicity and capturing the true behavior of the data, the decision to prioritize ARIMA's richer modeling capabilities aligns with this trade-off.
+
+### 5. Making the Predictions:
+
+![arima forecast points ](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/15239bcc-8342-43ca-9fb7-e8caa7681ff8)
+![forecasts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/952804a9-7242-4852-a351-ce209eb40d72)
 
 ## Recommendations:
 
 
+
+
+## Conclusion:
+From the analysis of US Regional Sales Data analysis, I've - 
+* Looked into the yearly trend of the sales revenue.
+* Identified the high and low performing products, channels, salesperson, customers and regions based on total revenue, profit, number of products etc.
+* Discover the patterns and drivers of sales.
+* Created an interactive Power BI dashboard to access the data in engaging ways.
+* Forecasted revenue for the next 12 months.
+* Generate reports and recommendations for improvement and optimization to share with key stakeholders.
+
 ## Limitations:
 
+Some limitations of this project are- 
+1. Due to the fictional nature of the dataset, it is impossible to pinpoint the actual factors driving sales. Real-world insights may differ significantly.
+2. The dataset covers only 2.5 years, which might not provide sufficient information to discern long-term trends or seasonal patterns accurately.
+3. In the interest of simplicity, I excluded regression and cluster analysis. These techniques could have shed light on the specific attributes influencing sales and customer behavior.
 
 ## References:
 
 * [US Regional sales data](https://data.world/dataman-udit/us-regional-sales-data)
 * [How to Convert Month Number to Month Name in Excel](https://spreadsheetplanet.com/convert-month-number-to-name-excel/)
 * [How to Calculate Correlation Coefficient in Excel (2 Easy Ways)](https://trumpexcel.com/correlation-coefficient-excel/)
+* [Time Series Analysis Tutorial](https://www.youtube.com/watch?v=dBNy_A6Zpcc)
