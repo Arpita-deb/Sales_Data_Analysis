@@ -1,7 +1,7 @@
 # Sales Forecasting: Predictive Analysis with Excel and Power BI
 
 ## Introduction:
-The dataset on regional sales in the US encompasses sales details for 47 distinct products spanning from May 2018 to December 2022. These products have been marketed through a network of stores distributed over 4 regions and 48 cities within the US. In this analysis, I will employ Microsoft Excel to probe into the data, utilize Power BI for data visualization, and apply R Programming Language for sales forecasting. My objective is to dissect the sales and revenue patterns annually and monthly, benchmarking them against past data, pinpoint the best and worst performing products, sales channels, regions, and sales representatives. Additionally, I aim to identify the variables influencing revenue and profit, uncover potential growth areas and obstacles in boosting sales and revenue. Ultimately, I will devise sales strategies aimed at resource optimization.
+The dataset on regional sales in the US encompasses sales details for 47 distinct products spanning from May 2018 to December 2022. These products have been marketed through a network of stores distributed over 4 regions and 48 cities within the US. In this analysis, I will employ Microsoft Excel to probe into the data, utilize Power BI for data visualization, and apply R Programming Language for sales forecasting. My objective is to dissect the sales and revenue patterns annually and monthly, benchmarking them against past data, pinpoint the best and worst performing products, sales channels, regions, and sales representatives. Additionally, I aim to identify the variables influencing revenue and profit, uncover potential growth areas and obstacles in boosting sales and revenue. Ultimately, I'll provide recommendations for product and sales strategy improvements.
 
 ## Objectives:
 
@@ -14,7 +14,7 @@ The objectives of the sales analysis are -
 * Generate reports and recommendations for improvement and optimization to share with key stakeholders.
 
 ## Stakeholders:
-These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for your sales analysis are -
+These are the people who are interested in the performance, trends, and insights of the sales data, and who can use the analysis to make informed decisions and actions. Some of the possible stakeholders for this analysis are -
 
 * Sales managers
 * Marketing managers
@@ -44,12 +44,13 @@ Some more advanced sales metrics are -
 ## Tools used:
 
 * Excel - For data cleaning and wrangling
-* Pivot Table - For analysing data
+* Pivot Table - For analyzing data
 * Power BI - For visualizing the data
+* R Programming Language - For Sales Forecasting
 
 ## About the Dataset:
 
-The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world](https://data.world/dataman-udit/us-regional-sales-data). It consists of 6 tables, namely-
+The dataset is created by Udit Kumar Chatterjee and is obtained from [data.world](https://data.world/dataman-udit/us-regional-sales-data). It contains 6 tables, namely-
 1. sales_orders_sheet
 2. customers_sheet
 3. store_locations_sheet
