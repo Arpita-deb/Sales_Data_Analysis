@@ -1,7 +1,11 @@
-# Sales Forecasting: Predictive Analysis with Excel and Power BI
+# Predictive Analysis of US Regional Sales Data using Excel, Power BI, and R
+
+![Banner Github](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/563a5812-f105-453d-97ca-0d02dc553d4d)
 
 ## Introduction:
-The dataset on regional sales in the US encompasses sales details for 47 distinct products spanning from May 2018 to December 2022. These products have been marketed through a network of stores distributed over 4 regions and 48 cities within the US. In this analysis, I will employ Microsoft Excel to probe into the data, utilize Power BI for data visualization, and apply R Programming Language for sales forecasting. My objective is to dissect the sales and revenue patterns annually and monthly, benchmarking them against past data, pinpoint the best and worst performing products, sales channels, regions, and sales representatives. Additionally, I aim to identify the variables influencing revenue and profit, uncover potential growth areas and obstacles in boosting sales and revenue. Ultimately, I'll provide recommendations for product and sales strategy improvements.
+The dataset on regional sales in the US for a certain fictional company encompasses sales details for 47 distinct products spanning from May 2018 to December 2022. These products have been marketed through a network of stores distributed over 4 regions and 48 cities within the US. 
+
+In this analysis, I will employ Microsoft Excel and Power BI to probe into the data, utilize Pivot Tables and Data Visualization, and apply R Programming Language for sales forecasting.
 
 ## Objectives:
 
@@ -148,7 +152,7 @@ The dataset was created 3 years ago.
 5. Trimmed for white spaces using TRIM function.
 6. Removed redundant columns.
     * currency_code column from sales_orders sheet.
-    * area_code,household_income, median_income, land_area, water_area, location from store_location sheet.
+    * area_code, land_area, water_area, location from store_location sheet.
 
 ## Data Processing:
 
@@ -158,13 +162,13 @@ The dataset was created 3 years ago.
 
 2. The term "discount applied" is a bit vague. In our case, if the discount applied is 0.05, it could mean one of two things:
 
-      1. **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. One can calculate the discount amount as follows:
+    * **Percentage Discount**: If the discount applied is a percentage, then 0.05 represents a 5% discount. This means that the discount amount would be 5% of the unit price. One can calculate the discount amount as follows:
 
     Discount Amount = Unit Price * Discount Rate
 
     Discount Amount = $1775.5 * 0.05 = $88.775
    
-      2. **Absolute Discount**: If the discount applied is an absolute value, then 0.05 represents a discount of 5 cents. This is quite small compared to the unit price, and it's unlikely that this is the case given the values in our dataset.
+    * **Absolute Discount**: If the discount applied is an absolute value, then 0.05 represents a discount of 5 cents. This is quite small compared to the unit price, and it's unlikely that this is the case given the values in our dataset.
 
 Therefore I am treating the discount applied (or discount rate) as percentage discount which corresponds to values 5%, 7.5%, 10%, 15%, 20%, 30% and 40% discount.
 
@@ -172,27 +176,27 @@ Therefore I am treating the discount applied (or discount rate) as percentage di
 
 In order to perform sales data analysis, I created some columns based on the columns already present in the sales_order_sheet. These are -
 
-* order_duration(days) - This feature can be calculated by subtracting the order_date from the delivery_date, then changing the formatting to General. It can indicate how long it takes for an order to be delivered, which can affect customer satisfaction and loyalty.
+* *order_duration(days)* - This feature can be calculated by subtracting the order_date from the delivery_date, then changing the formatting to General. It can indicate how long it takes for an order to be delivered, which can affect customer satisfaction and loyalty.
 
    `order duration = delivery date - order date`
 
-* lead_time (days) - It is the number of days between procurement and delivery for each order. In Excel sheet, I substracted procurement date from delivery date and formatting the result in General.
+* *lead_time (days)* - It is the number of days between procurement and delivery for each order. In Excel sheet, I substracted procurement date from delivery date and formatting the result in General.
 
    `lead_time = delivery date - procurement date`
   
-* discount_amount - A discount has been offered when the price of an item is reduced and sold. The term "discount percentage" or "discount rate" refers to the price reduction represented as a percentage.
+* *discount_amount* - A discount has been offered when the price of an item is reduced and sold. The term "discount percentage" or "discount rate" refers to the price reduction represented as a percentage.
 
    `discount amount = unit price x discount rate`
 
-* net_price - The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
+* *net_price* - The amount that a buyer needs to pay for purchasing the product after applying the discount and subtracting it from the unit price is called the **Net Price** or **Sale Price**. This is the final price that the customer pays.
 
    `net price = unit price - discount amount`
 
-* profit(gross) - In general, the profit is defined as the amount gained by selling a product, which should be more than the cost price of the product.
+* *profit(gross)* - In general, the profit is defined as the amount gained by selling a product, which should be more than the cost price of the product.
 
    `Profit = (Net Price - Unit Cost) x order quantity`
 
-* revenue - Revenue is typically calculated by multiplying the price of a product by the quantity sold.
+* *revenue* - Revenue is typically calculated by multiplying the price of a product by the quantity sold.
 
    `Revenue= Price per unit × Number of units sold`
 
@@ -204,12 +208,10 @@ In order to perform sales data analysis, I created some columns based on the col
 
 I extracted the month and year from the order date for future calculation and visualization using MONTH and YEAR function. The MONTH function returned numerical values for each month (1-12). So, using TEXT function, I converted the number into month name. The function is - =TEXT(F41*29, "mmmm").
 
-I also calculated the quarter by using ROUNDUP(MONTH(A2)/3,0) formula.
 
-### Merging of columns from other datasets
+### Merging columns from other datasets
 
-Our working data is the sales_order_sheet and along with the quantitative data(cost, profit, quantity etc), we also need qualitative data (e.g., product name, sales representative, region, customer name etc). 
-Therefore, using VLOOKUP I merged these columns with our sales_order_sheet -
+Our working data is the sales_order_sheet and along with the quantitative data(cost, profit, quantity etc), we also need qualitative data (e.g., product name, sales representative, region, customer name etc). To merge the sales_order_sheet with other sheets (e.g products, sales persons, region and customers) I used VLOOKUP. I incorporated the following columns into my final sales dataset -
 
 * customer_name from *customer_sheet*
 * sales_representative from *sales_team_sheet*
@@ -221,125 +223,31 @@ Therefore, using VLOOKUP I merged these columns with our sales_order_sheet -
 
 ### Removing redundant columns
 
-Now that we have all the required columns we need to analysis the sales data, I removed the columns that are not important for the analysis to keep our dataset clean and less cumbersome to manage. 
-
+Now that we have all the required columns we need to analysis the sales data, I removed the following columns that are not important for the analysis to keep our dataset clean and less cumbersome to manage-
 * warehouse_code
 * customer_id
 * product_id
 * sales_team_id
 
-After the cleaning and preprocessing the datasets, we end up with a dataset with 7991 rows and 24 columns namely - order_number, sales_channel, order_date, order_month, quarter, order_year, lead_time (days), order_duration(days), salesperson, customer, store_id, city, county, state, region, product, order_quantity, discount_applied, unit_price, unit_cost, discount_amount, net_price, revenue and profit.
+After cleaning and preprocessing the data, the final dataset contain 7991 rows and 24 columns namely - order_number, sales_channel, order_date, order_month, order_year, lead_time (days), order_duration(days), salesperson, customer, store_id, city, county, state, region, product, order_quantity, discount_applied, unit_price, unit_cost, discount_amount, net_price, revenue and profit.
 
 ## Data Analysis:
 
-### 1. Exploratory Data Analysis (EDA):
- The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
+The objective here is to understand the current state of sales by identifing the best and worst performing products, channels, teams, and regions. We'll primarily look into *revenue*, *profit* and *quantity demanded* metrics. 
 
-* **Sales Channel:**
+### Seasonal patterns:
 
-- Which **sales channel** contributes the most to the overall revenue?
-
-  ![sales channel donut](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a40a64ea-5796-43f6-9832-94346be4f66b)
-
-- How effective are different **sales channels** (e.g., online, retail, wholesale) in specific regions?
-
-  ![sales breakdown by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/4a21d071-e49f-4bef-b178-c4b9b40f91d6)
-
-- Are there specific regions where stores perform exceptionally well?
-
-From 2018 to 2020, the instore channel accounted for 41% of total revenue across all regions in the United States, outperforming the online channel. The wholesale channel had the smallest contribution at 11%.
-
-In the four regions of the United States, instore (approximately 14%) and online (around 10%) channels were the most successful. These channels were particularly dominant in the Western and Southern states compared to the distributor (about 5%) and wholesale (roughly 3%) channels. Therefore, the company could focus on enhancing these two channels to increase revenue in these areas.
-
-However, in the Midwestern and Northeastern regions, the contributions of these channels are more evenly matched. Thus, the company could consider improving all channels, with a particular focus on instore and online channels in the Midwest and Northeast.
-   
-* **Products:**
-
-- Which products are the **best sellers** in terms of **quantity** and **revenue**?
-
-   ![top 10 pdts rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/869df7d6-0b85-43f8-90e8-e98a7f8f3228) 
-   ![top 10 pdt quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5e5944de-e5dc-41db-a731-a2f058082386)
-
-We can see that Accessories, Platters, Cocktail Glasses, Serveware, Rugs and Collectibles are best sellers in terms of both quantity and revenue.
-   
-- Are there any products that consistently **underperform** in terms of quantity and revenue?
-
-   ![pdt low rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/49e238d7-cd1d-4ce0-b3a7-4413aefb9353)  
-   ![pdt low quantity](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/6cdbe2b7-de8c-44e1-a5bd-04b6cd1b745e) 
-
-We can see that Pillows, Bean Bags, Bedroom Furniture, Vases, Cookware, Computers, Floor Lamps, Wall Coverings, Outdoor Decor, Audio, Candles and Outdoor Furniture have performed worse both in terms of revenue and quantity sold.
-
-The bar chart shows the products in blue with revenue higher than average revenue($1,556,243) per product and the orange ones lower than average revenue. This gives us an idea of how the products are faring in the marketplace.
-  
-   ![rev by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fb76879e-dbf3-4c4d-83cb-7454e37de631)
-
- * **Companies:**
-
-- What are the top 10 companies in terms of overall **revenue**?
-
-   ![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03e6bea2-b5d2-4ba2-b699-74894310d5a3)
-
-- What are the least 10 companies in terms of overall **revenue**?
-
-   ![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
-
-   Medline, Apotheca, Ltd, and Pure Group have generated the highest revenue, while Avon Corp, WakeFern, and Wuxi Group are at the bottom.
-
-   The bar chart shows the products in blue with revenue higher than average revenue($1,462,869) per company and the orange ones lower than average revenue.
-
-   ![rev by company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2cb51fef-ec16-4757-b656-d8507ab423ee)
-
-* **Salesperson:**
-   
-- What are the best and worst performing salesperson? How does each **salesperson** contribute to the overall sales revenue?
-
-   ![top 10 salesperson table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/20679594-b010-4376-bc76-ae6d4112d11b)
-
-   ![bottom 10 salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b99b2b9d-9a8b-4fa8-a323-6126737675cb)
-
-   Donald Reynolds, George Lewis, and Joshua Little are the top three salespeople in terms of total revenue generated. In terms of the highest average revenue, Donald Reynolds, Keith Griffin, and Joshua Little lead.
-
-   Joshua Bennett, Shawn Torres, and Carlos rank lowest in terms of total revenue.
-Shawn Wallace, Todd Roberts, and Shawn Torres are the least performing in terms of average revenue
-
-   The bar chart shows the products in blue with revenue higher than average revenue($2,612,265) per salesperson and the orange ones lower than average revenue.
-
-   ![rev by sales person](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/bbaab6f9-3fe0-4560-a4d8-8a16de8d331b)
-     
-* **Regions**:
-
-- Which **regions** exhibit the highest and lowest sales performance?
-
-   ![regional rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/95ea6981-36c4-4457-b9f0-4a2a5a4040b5)1678)
-
-- Are there any **regional variations** in demand or customer preferences?
-      
-   ![regional demand](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fe525d49-9a45-452e-a16c-17e51f15d264)
-  
-- Which **states** exhibit the highest and lowest sales performance?
-     
-  ![rev map](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/2afec678-e00c-46c2-a02a-e2bcb3ed2b09)
-
-  The states with the highest performance are California (20.76%), Texas (10.10%), Illinois (7.88%), Florida (7.41%), and New York (4.84%). Conversely, Hawaii (0.2%), South Dakota (0.19%), and Arkansas (0.13%) are among the lowest-performing states.
-   
-   ![top 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1be85350-8635-4d35-9b60-97755d390df9)
-   ![bottom 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03af9e17-1fc9-45ae-a193-3d403e71cc67)
-
-- Which cities exhibit the highest and lowest sales performance?
-  
-   ![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/e6fac995-8333-4179-9b6a-d458acd1af12)
-   ![bottom 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1fb85f90-d6b1-4bc3-9953-673c07da3260)
-
-- Are there opportunities to optimize channel distribution?
-
-* **Seasonal patterns**:
-
-- How has the **sales revenue trended over time**?
+* How has the **sales revenue trended over time**?
    
    ![sales by years](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5153f989-9735-4eb1-97b8-22944b62f6e9)
+
+   There is 62.87% increase in revenue from 2018 to 2019, but only 1.19% increase from 2019 to 2020.
+
+* Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
+  
    ![yearly rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/095dd76b-c2a7-4039-8897-ff8e2098aea5)
-   
--  Do sales exhibit **seasonal trends**? For example, are there spikes during holidays or specific months?
+
+From this line chart we can notice some seasonalities among 3 years.
 
 * **2018**: Revenue escalates from May through August, then diminishes in October. A resurgence in revenue occurs from October to December.
 
@@ -348,30 +256,126 @@ Shawn Wallace, Todd Roberts, and Shawn Torres are the least performing in terms 
 * **2020**: Revenue consistently falls from January to March, then recovers until May. A drop is seen in June, with July marking the peak revenue for 2020, which then declines around September. A slight increase in October is followed by a stable revenue pattern for the remainder of the year.
 
 Regarding seasonal patterns, it appears that:
+
 - The mid-year months, particularly **May to August**, are generally associated with higher revenue, which could be linked to summer season promotions or events.
 - There's a noticeable dip in **October** across all three years, suggesting a potential seasonal downturn during this period.
 - The end-of-year months, **November and December**, often show an increase in revenue, likely due to holiday shopping and year-end sales events.
+   
+### Products:
 
-These trends suggest that the business might benefit from strategic planning around these periods, possibly by boosting marketing efforts during the low seasons and capitalizing on the high seasons.
+* Which products are the **best sellers** and **worst sellers** in terms of **revenue**?
+  
+   ![total rev and profit by pdt](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/5561b4bb-2b12-415f-a799-db419cbdc855)
 
-* **Correlations and causality**:
+   It appears that Accessories, Rugs, and Platters have generated the highest total revenue, while Bedroom Furniture, Bean Bags, and Pillows have generated the lowest total revenue.
+
+   ![pdt breakdown by rev and year](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/71cf4cb4-5fcc-412a-8686-ce6c40428f57)
+
+   If we look closer at the change in revenue over the years, we can identify 23 products that generated high revenue in 2020 compared to previous years. These are Accessories, Bakeware, Bar Tools, Basketball, Bean Bags, Bedroom Furniture, Cocktail glasses, Collectibles, Dining Furniture, Dinnerware, Festive, Floral, Furniture Cushions, Outdoor decor, Outdoor furniture, serve ware, Table linens, TV and Video, Vases, Wall covering, Wall Frames, Wine Storage and Wreaths.
+
+   The rest 24 products produced lower revenue in 2020 compared to 2019. 
+
+* Are there any products that consistently **underperform** in terms of quantity and revenue?
+
+   Ornaments and Sculptures have produced revenue lower than both years.
+
+### Companies:
+
+* What are the top 10 companies in terms of overall **revenue**?
+
+   ![top 10 company table](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/03e6bea2-b5d2-4ba2-b699-74894310d5a3)
+
+* What are the least 10 companies in terms of overall **revenue**?
+
+   ![bottom 10 company](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/f9d3085b-b8ca-4621-b963-a3cff9164e74)
+
+   Medline, Apotheca, Ltd, and Pure Group have generated the highest revenue, while Avon Corp, WakeFern, and Wuxi Group are at the bottom.
+
+   The bar chart below illustrates product revenues, differentiating between those exceeding the average revenue per company (highlighted in orange) and those falling below it (depicted in peach). Notably, over 50% of the total customers generate revenue below the average, which stands at approximately $1,462,869.
+
+   ![rev by customers](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/29474ee2-f586-4e43-a0f1-1000bb8a0853)
+
+### Salesperson:
+   
+* Who are the high and low performing salesperson in terms of **total revenue generated** and **number of sales**?
+  
+   ![total rev and sales by salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/c6520e5c-4bb0-479e-affc-42bdea54de83)
+
+   Donald Reynolds, George Lewis, and Joshua Little are the top three salespeople in terms of total revenue generated. Todd Roberts(340), Shawn Wallace(316) and George Lewis(315) are the top 3 salesperson with highest number of sales closed.
+   
+   Joshua Bennett, Shawn Torres, and Carlos rank lowest in terms of total revenue.
+
+   ![avg sales and sales by salesperson](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b5f8ff3f-8099-4de9-9101-b6ee2d0749cd)
+
+   In terms of the highest average revenue, Donald Reynolds, Keith Griffin, and Joshua Little lead. Shawn Wallace, Todd Roberts, and Shawn Torres are the least performing in terms of average revenue.
+     
+### Regions:
+
+* Which **regions** exhibit the highest and lowest sales performance?
+
+   ![regional rev](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/95ea6981-36c4-4457-b9f0-4a2a5a4040b5)
+
+* Are there any **regional variations** in demand or customer preferences?
+      
+   ![regional demand](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/fe525d49-9a45-452e-a16c-17e51f15d264)
+  
+* Which **states** exhibit the highest and lowest sales performance?
+
+   ![Top 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/b6ad7a69-60c4-4e64-816e-178c9a4c946f)
+   ![bottom 10 states](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/63c7cb62-d0c1-4aeb-bfca-26e976563798)
+
+  The states with the highest performance are California (20.76%), Texas (10.10%), Illinois (7.88%), Florida (7.41%), and New York (4.84%). Conversely, Hawaii (0.2%), South Dakota (0.19%), and Arkansas (0.13%) are among the lowest-performing states.
+
+* Which cities exhibit the highest and lowest sales performance?
+  
+   ![top 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/e6fac995-8333-4179-9b6a-d458acd1af12)
+   ![bottom 10 cities](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/1fb85f90-d6b1-4bc3-9953-673c07da3260)
+
+* Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
+
+   1. **Population Density**:
+
+   ![relation between population and revenue](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/d7f9ae90-922f-494b-9966-38f62118bb65)
+
+   Areas with higher population density tend to have more potential customers, leading to increased sales. The correlation between revenue and population density is evident across all four regions.
+
+  2. **Household Income**: 
+
+  ![relation between avg household income and revenue](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/dfcd8223-601b-466e-b974-266a53f57fdf)
+
+   The economic condition of a region can greatly influence sales. Regions with higher income levels might have more purchasing power, leading to higher sales. 
+
+   Interestingly, our analysis reveals that Kylo's A-Z company is popular among regions with medium to low average household income.
+
+ ### Sales Channel:
+
+   The availability and efficiency of distribution channels in a region can affect sales. Kylo's has 4 sales channels: Instore, Online, Distributor, and Wholesale. And this is what their Sales Channel Distribution looks like -
+
+  ![sales channel donut](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/a40a64ea-5796-43f6-9832-94346be4f66b)
+
+   As can be seen from the donut chart, the In-store channel brought the highest revenue for Kylo's whereas Wholesale brought the least. Let's see how effective these sales channels are across various regions of the United States.
+
+  ![sales breakdown by region](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/4a21d071-e49f-4bef-b178-c4b9b40f91d6)
+
+   In the four regions of the United States, Instore (approximately 14%) and Online (around 10%) channels were the most successful. These channels were particularly dominant in the Western and Southern states compared to the Distributor (about 5%) and Wholesale (roughly 3%) channels.
+
+   However, in the Midwestern and Northeastern regions, the contributions of these channels are more evenly matched.
+
+### Correlations and causality:
     
-   - Are there any **correlations** between regional factors (e.g., population density, economic indicators) and sales performance?
-
 ![corrplot](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/4b88c19a-6006-4d09-b6a3-5b3e98d700a5)
 
-1. **Revenue and Order Quantity**: This is a logical correlation. The more units of a product sold (order quantity), the higher the total sales revenue. This is because revenue is calculated as `Quantity * Unit Price`. So, if the quantity increases, the revenue will also increase, assuming the unit price remains constant.
+   1. **Revenue and Order Quantity**: This is a logical correlation. The more units of a product sold (order quantity), the higher the total sales revenue. This is because revenue is calculated as `Quantity * Unit Price`. So, if the quantity increases, the revenue will also increase, assuming the unit price remains constant.
 
-2. **Revenue and Unit Price**: Similarly, the unit price of a product also directly affects revenue. If you sell a product at a higher price, the total revenue increases, assuming the quantity sold remains constant. 
+   2. **Revenue and Unit Price**: Similarly, the unit price of a product also directly affects revenue. If you sell a product at a higher price, the total revenue increases, assuming the quantity sold remains constant. 
 
-3. **Revenue and Net Price**: Net price is the actual price the customer pays after applying any discounts. If the net price is high, it means that the discounts given are less, leading to higher revenue.
+   3. **Revenue and Net Price**: Net price is the actual price the customer pays after applying any discounts. If the net price is high, it means that the discounts given are less, leading to higher revenue.
 
-4. **Revenue and Profit**: Profit is the difference between the revenue and the cost. If the revenue is high and the cost is controlled, the profit will be high. Therefore, revenue and profit are usually positively correlated.
+   4. **Revenue and Profit**: Profit is the difference between the revenue and the cost. If the revenue is high and the cost is controlled, the profit will be high. Therefore, revenue and profit are usually positively correlated.
 
-As for causal relationships, both order quantity and unit price can be considered as having a causal relationship with revenue because changes in these variables directly cause changes in revenue. However, remember that correlation does not always imply causation, and other factors could be at play. For example, an increase in order quantity could be due to a successful marketing campaign, a seasonal effect, or a variety of other factors.
+   As for causal relationships, both order quantity and unit price can be considered as having a causal relationship with revenue because changes in these variables directly cause changes in revenue. However, remember that correlation does not always imply causation, and other factors could be at play. For example, an increase in order quantity could be due to a successful marketing campaign, a seasonal effect, or a variety of other factors.
 
-Net price and profit, on the other hand, are derived from revenue, so they don't cause changes in revenue but are a result of changes in revenue.
-
+   Net price and profit, on the other hand, are derived from revenue, so they don't cause changes in revenue but are a result of changes in revenue.
 
 ## PowerBI Dashboard:
 
@@ -381,7 +385,7 @@ Net price and profit, on the other hand, are derived from revenue, so they don't
 
 * Can we **predict future sales** based on historical data and regional patterns?
 
-If we transform the sales data we can apply time series analysis to predict expected sales trend for the next year. In order to do that I took the following steps -
+   If we transform the sales data we can apply time series analysis to predict expected sales trend for the next year. In order to do that I took the following steps -
 
 ### 1. Data Transformation:
    - Selected only order_date and revenue column in a different sheet.
@@ -441,15 +445,54 @@ If we transform the sales data we can apply time series analysis to predict expe
      - ARIMA accounts for **moving average terms** and **seasonality**, which can capture more complex dynamics.
      - While simpler models may have lower deviation or p-values, the ARIMA model's consideration of these additional factors makes it a better choice for capturing the underlying patterns in your data.
 
-Since model selection involves a trade-off between simplicity and capturing the true behavior of the data, the decision to prioritize ARIMA's richer modeling capabilities aligns with this trade-off.
+   Since model selection involves a trade-off between simplicity and capturing the true behavior of the data, the decision to prioritize ARIMA's richer modeling capabilities aligns with this trade-off.
 
 ### 5. Making the Predictions:
 
 ![arima forecast points ](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/15239bcc-8342-43ca-9fb7-e8caa7681ff8)
 ![forecasts](https://github.com/Arpita-deb/Sales_Data_Analysis/assets/139372731/952804a9-7242-4852-a351-ce209eb40d72)
 
-## Recommendations:
+## Recommendations for Kylo's A-Z Company:
 
+1. They can plan strategically around the mid-year months (May-August) as well as during festive seasons such as November and December by boosting marketing efforts during the low seasons and capitalizing on the high seasons.
+
+2. They need to identify specific low-performing products and analyze the reasons behind their underperformance. They can consider adjusting pricing strategies, offering targeted discounts, or improving product features. On the other hand they can focus on High-Profit Products and allocate resources and marketing efforts toward these products. They can also optimize inventory management for successful products.
+
+3. To do business with various companies and yield maximum revenue, Kylo's can take the following steps:
+  
+   - **Segmentation**: Kylo's should categorize their customer base based on revenue performance. Identify high-performing companies and low-performing ones.
+  
+   - **Focus on Profitability**: Rather than spreading resources across all customers, they should concentrate efforts on the highly profitable companies. These are likely to yield better returns.
+  
+   - **Strategic Partnerships**: They can collaborate closely with the top-performing companies to strengthen relationships and explore growth opportunities.
+  
+   - **Performance Metrics**: They should establish clear performance metrics for all clients and regularly assess revenue trends and adjust strategies accordingly.
+
+4. To improve salespeople's performance, Kylo's can take the following steps:
+  
+   - **Training and Development**: If some salespeople are closing fewer but high-value deals, they might have a knack for landing big clients. The company can consider providing them with further training to enhance their skills. Similarly, those with higher average revenue might be good at consistently closing medium-value deals. Identifying the strengths of each salesperson can help in tailoring training and development programs.
+
+   - **Incentive Structure**: They might also review their incentive structure. If it's solely based on the number of sales, salespeople closing high-value deals might feel unrewarded. A balanced incentive structure that considers both the number of sales and the value of sales could be more effective.
+
+   - **Performance Metrics**: They can consider using a combination of metrics like Revenue Efficiency Score (RES), Sales Conversion Rate (SCR), and Customer Acquisition Cost (CAC) to evaluate a salesperson's performance.
+
+   - **Goal Setting**: They can set clear and specific goals for their salespeople while making sure that these goals align with the company's overall objectives. This could be a mix of revenue targets, number of new customers, retention of existing customers, etc.
+
+   - **Regular Feedback**: Provide the salespeople regular feedback to help them understand their areas of improvement and keep them motivated.
+
+5.  To maximize sales across diverse regions, I'd recommend the following: 
+  
+    - **Target High-Population Density Areas**: Focus on regions with dense populations, as they offer a larger customer base. Allocate resources for marketing, distribution, and customer engagement in these areas.
+  
+    - **Customize Marketing Efforts**: Tailor marketing campaigns to suit regional preferences.
+
+    - **Leverage Income Insights**: Recognize that Kylo's A-Z company performs well in regions with medium to low average household income. Adjust pricing strategies and product offerings accordingly.
+
+    - **Evaluate Market Saturation**: Analyze the competitive landscape in each region and identify areas with untapped potential or gaps in the market.
+
+    - **Efficient Distribution Channels**: 2. They can focus on enhancing the Distributor and Wholesale channels to increase revenue in Western and Southern regions. They can consider improving all the channels, with a particular focus on In-store and Online channels in the Midwestern and Northeastern regions.
+
+    - **Product Fit Assessment**:  Understand local needs and preferences and adapt product offerings to align with regional requirements.
 
 ## Conclusion:
 From the analysis of US Regional Sales Data analysis, I've - 
