@@ -441,9 +441,9 @@ Regarding seasonal patterns, it appears that:
    - These metrics provide valuable insights into the performance of each model.
 
 * **Choosing ARIMA**:
-   - Despite the higher deviation and p-value for the ARIMA(0,1,1)(0,1,0) model, your rationale for selecting is:
+   - Despite the higher deviation and p-value for the ARIMA(0,1,1)(0,1,0) model, my rationale for selecting ARIMA model is:
      - ARIMA accounts for **moving average terms** and **seasonality**, which can capture more complex dynamics.
-     - While simpler models may have lower deviation or p-values, the ARIMA model's consideration of these additional factors makes it a better choice for capturing the underlying patterns in your data.
+     - While simpler models may have lower deviation or p-values, the ARIMA model's consideration of these additional factors makes it a better choice for capturing the underlying patterns in our data.
 
    Since model selection involves a trade-off between simplicity and capturing the true behavior of the data, the decision to prioritize ARIMA's richer modeling capabilities aligns with this trade-off.
 
