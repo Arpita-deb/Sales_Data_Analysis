@@ -26,7 +26,7 @@ These are the people who are interested in the performance, trends, and insights
 * Finance managers
 * Senior executives
 
-## Important Metrics to measure:
+## Metrics to measure:
 Metrics will help us measure and evaluate the sales performance, and that can provide quantitative and qualitative information about the sales data. Some of the important metrics to use for our exploratory data analysis are -
 
 * Sales volume - The number of units of a product or service sold.
@@ -34,16 +34,6 @@ Metrics will help us measure and evaluate the sales performance, and that can pr
 * Profit per product - The difference between the selling price and the cost of a product. It's calculated as `Profit per Product = Selling Price - Cost of Goods Sold`.
 * Total sales per year/quarter/month - The total sales volume or revenue during a specific time period.
 * Total sales per region/state/county/product/channel/teams - The total sales volume or revenue for a specific category.
-
-Some more advanced sales metrics are -
-
-* Year-Over-Year Growth - The percentage change in a variable over a year. It's calculated as `Year-Over-Year Growth = (Current Year Value - Last Year Value) / Last Year Value * 100%`.
-* Sales growth rate - The percentage increase in sales over a specific period. It's calculated as `Sales Growth Rate = (Current Period Sales - Previous Period Sales) / Previous Period Sales * 100%`.
-* Sales mix - The proportion of each product sold relative to total sales.
-* Sales trends - Patterns or tendencies in sales over a period of time.
-* Average order value - The average amount spent each time a customer places an order. It's calculated as `Average Order Value = Total Revenue / Number of Orders`.
-* Sales variance - The difference between actual sales and forecasted sales.
-* Sales forecast accuracy - The closeness of the forecasted sales to the actual sales. It's calculated as `Sales Forecast Accuracy = 1 - (Absolute Error / Actual Sales)`.
 
 ## Tools used:
 
